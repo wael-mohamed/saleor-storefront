@@ -68,7 +68,7 @@ const Page: React.FC<{
                 shop.homepageCollection.name
                 )}
               >
-                <Button>Shop sale</Button>
+                <Button>Discover</Button>
               </Link>
             )
           )}
