@@ -17,6 +17,8 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
+import { generateCollectionUrl } from "@temp/@next/utils/core";
+
 const Page: React.FC<{
   loading: boolean;
   categories: ProductsList_categories;
@@ -43,12 +45,7 @@ const Page: React.FC<{
         <div className="home-page__hero-text">
           <div>
             <span className="home-page__hero__title">
-              <h1>Final reduction</h1>
-            </span>
-          </div>
-          <div>
-            <span className="home-page__hero__title">
-              <h1>Up to 70% off sale</h1>
+              <h1>{shop.homepageCollection.name}</h1>
             </span>
           </div>
         </div>
@@ -58,12 +55,12 @@ const Page: React.FC<{
           ) : (
             categoriesExist() && (
               <Link
-                to={generateCategoryUrl(
-                  categories.edges[0].node.id,
-                  categories.edges[0].node.name
+              to={generateCollectionUrl(
+                shop.homepageCollection.id,
+                shop.homepageCollection.name
                 )}
               >
-                <Button>Shop sale</Button>
+                <Button>Discover</Button>
               </Link>
             )
           )}

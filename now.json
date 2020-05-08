@@ -1,0 +1,10 @@
+{
+    "routes": [
+        { "src": "/images/(.*)"},
+        { "src": "/js/(.*)"},
+        { "src": "/app(.*)"},
+        { "src": "/precache-manifest(.*)"},
+        { "src": "/service-worker(.*)"},
+        { "src": "/(.*)", "dest": "index.html"}
+    ]
+}

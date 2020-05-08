@@ -212,7 +212,10 @@
 
   &__nav-dropdown {
     padding: 0 1.5rem;
-
+    &>li>*  {
+      font-weight: $bold-font-weight!important;
+    }
+    
     &--active {
       background-color: $turquoise-light;
     }

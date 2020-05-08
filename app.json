@@ -1,14 +1,11 @@
 {
-  "name": "saleor-storefront",
-  "description": "A GraphQL-powered, PWA, single-page storefront application for Saleor",
-  "repository": "https://github.com/mirumee/saleor-storefront",
-  "website": "http://getsaleor.com/",
-  "logo": "https://mirumee.com/img/opensource_saleor.jpg",
-  "keywords": ["saleor", "e-commerce", "storefront"],
+  "name": "ilyes-bijoux-storefront",
+  "description": "A GraphQL-powered, PWA, single-page storefront application for Ilyes Bijoux API",
+  "keywords": ["e-commerce", "storefront"],
   "env": {
     "API_URI": {
-      "description": "URI of a running instance of Saleor GraphQL API",
-      "value": "https://pwa.demo.saleor.rocks/graphql/"
+      "description": "URI of a running instance of IB GraphQL API",
+      "value": "https://ilyes-bijoux.herokuapp.com/graphql/"
     }
   },
   "buildpacks": [
