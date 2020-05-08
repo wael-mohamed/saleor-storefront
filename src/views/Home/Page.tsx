@@ -48,7 +48,7 @@ const Page: React.FC<{
         <div className="home-page__hero-text">
           <div>
             <span className="home-page__hero__title">
-            {loading && !shop.homepageCollection ? (
+            {loading && !shop ? (
             <Loader />
           ) : (
             homeCollectionExist() && <h1>{shop.homepageCollection.name}</h1>
@@ -58,7 +58,7 @@ const Page: React.FC<{
           </div>
         </div>
         <div className="home-page__hero-action">
-          {loading && !shop.homepageCollection ? (
+          {loading && !shop ? (
             <Loader />
           ) : (
             homeCollectionExist() && (
