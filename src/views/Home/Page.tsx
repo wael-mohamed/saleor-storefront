@@ -28,7 +28,10 @@ const Page: React.FC<{
   const categoriesExist = () => {
     return categories && categories.edges && categories.edges.length > 0;
   };
-
+  const homeCollectionExist = () => {
+    return shop && shop.homepageCollection && shop.homepageCollection.id && shop.homepageCollection.name;
+  };
+  
   return (
     <>
       <script className="structured-data-list" type="application/ld+json">
@@ -45,22 +48,27 @@ const Page: React.FC<{
         <div className="home-page__hero-text">
           <div>
             <span className="home-page__hero__title">
-              <h1>{shop.homepageCollection.name}</h1>
+            {loading && !shop.homepageCollection ? (
+            <Loader />
+          ) : (
+            homeCollectionExist() && <h1>{shop.homepageCollection.name}</h1>
+        
+          )}
             </span>
           </div>
         </div>
         <div className="home-page__hero-action">
-          {loading && !categories ? (
+          {loading && !shop.homepageCollection ? (
             <Loader />
           ) : (
-            categoriesExist() && (
+            homeCollectionExist() && (
               <Link
               to={generateCollectionUrl(
                 shop.homepageCollection.id,
                 shop.homepageCollection.name
                 )}
               >
-                <Button>Discover</Button>
+                <Button>Shop sale</Button>
               </Link>
             )
           )}
