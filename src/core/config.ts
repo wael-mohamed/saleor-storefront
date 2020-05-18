@@ -1,7 +1,7 @@
 import { generatePageUrl } from "./utils";
 
 export const BASE_URL = "/";
-export const PRODUCTS_PER_PAGE = 6;
+export const PRODUCTS_PER_PAGE = 18;
 export const SUPPORT_EMAIL = "support@example.com";
 export const PROVIDERS = {
   BRAINTREE: {
@@ -36,9 +36,9 @@ export const SOCIAL_MEDIA = [
 export const META_DEFAULTS = {
   custom: [],
   description:
-    "Open-source PWA storefront built with  e-commerce GraphQL API. Written with React and TypeScript.",
+    "PWA storefront built with  e-commerce GraphQL API. Written with React and TypeScript, made by Wael Mohamed",
   image: `${window.location.origin}${require("../images/logo.svg")}`,
-  title: "Ilyes Bijoux - ECommerce",
+  title: "Ilyes Bijoux",
   type: "website",
   url: window.location.origin,
 };
