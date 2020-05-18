@@ -135,7 +135,12 @@ const CheckoutPaymentSubpageWithRef: RefForwardingComponent<
       setBillingErrors([{ message: "Please provide billing address." }]);
       return;
     }
+    const shippingPhone = address?.phone ;
 
+    if (!shippingPhone) {
+      setBillingErrors([{ field: "phone", message: "Please provide your phone number." }]);
+      return;
+    }
     const billingEmail = user?.email || email;
 
     if (

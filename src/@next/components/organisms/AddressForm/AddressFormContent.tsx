@@ -57,7 +57,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
           />
         </S.RowWithTwoCells>
         <S.RowWithTwoCells>
-          <TextField
+          {/* <TextField
             data-cy="addressFormCompanyName"
             name="companyName"
             label="Company Name (Optional)"
@@ -65,7 +65,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             autoComplete="organization"
             errors={fieldErrors!.companyName}
             {...basicInputProps()}
-          />
+          /> */}
           <TextField
             data-cy="addressFormPhone"
             name="phone"
