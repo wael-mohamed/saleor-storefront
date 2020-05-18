@@ -111,7 +111,7 @@ const CheckoutPayment: React.FC<IProps> = ({
                 formRef={billingFormRef}
                 addresses={adresses}
                 selectedAddressId={selectedUserAddressId}
-                countriesOptions={countries?.filter(filterNotEmptyArrayItems)}
+                countriesOptions={countries?.filter(filterNotEmptyArrayItems).filter(country => { return country.code==="DZ"})}
                 userId={userId}
                 errors={billingErrors}
                 onSelect={(address, id) =>
