@@ -47,9 +47,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
     : undefined;
 
   const getPaymentMethodDescription = () => {
-    if (payment?.gateway === "wael.payments.cashOnDelivery") {
-      return `Cash On Delivery`
-    } else if (payment?.gateway === "mirumee.payments.dummy") {
+    if (payment?.gateway === "mirumee.payments.dummy") {
       return `Dummy: ${
         dummyStatuses.find(
           status => status.token === selectedPaymentGatewayToken
@@ -66,7 +64,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
       changeSubmitProgress(true);
       const { data, dataError } = await completeCheckout();
       changeSubmitProgress(false);
-      const errors = dataError?.error.extraInfo.userInputErrors;
+      const errors = dataError?.error;
       if (errors) {
         setErrors(errors);
       } else {
