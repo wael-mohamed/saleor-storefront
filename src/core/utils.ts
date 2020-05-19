@@ -93,7 +93,7 @@ export const getValueOrEmpty = <T>(value: T): T | string =>
 export const convertSortByFromString = (sortBy: string) => {
   if (!sortBy) {
     const direction = OrderDirection.DESC;
-    let field = ProductOrderField.DATE;
+    const field = ProductOrderField.DATE;
       return { field, direction };
     }
   const direction = sortBy.startsWith("-")

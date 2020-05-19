@@ -108,7 +108,10 @@ module.exports = ({ sourceDir, distDir }) => ({
         developerURL: null, // prevent retrieving from the nearest package.json
         background: "#ddd",
         theme_color: "#333",
+        version:"2.10.0",
+        developerName:"wael-mohamed"
       },
+      path:"/",
     }),
     new webpack.EnvironmentPlugin({
       API_URI: "http://localhost:8000/graphql/",
