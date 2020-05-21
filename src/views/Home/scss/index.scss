@@ -33,7 +33,9 @@
     }
 
     &__title {
-      background-color: $white;
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: inline-block;
       transform: skew(0deg);
       padding: $spacer $spacer * 3;
