@@ -5,7 +5,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 import { Button, Loader, ProductsFeatured } from "../../components";
-import { generateCategoryUrl } from "../../core/utils";
+import { generateCategoryUrl, generateCollectionUrl } from "../../core/utils";
 
 import {
   ProductsList_categories,
@@ -17,7 +17,11 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
+<<<<<<< HEAD
 import { generateCollectionUrl } from "@temp/@next/utils/core";
+=======
+import { FormattedMessage, useIntl } from "react-intl";
+>>>>>>> use/react-intl
 
 const Page: React.FC<{
   loading: boolean;
@@ -25,13 +29,19 @@ const Page: React.FC<{
   backgroundImage: ProductsList_shop_homepageCollection_backgroundImage;
   shop: ProductsList_shop;
 }> = ({ loading, categories, backgroundImage, shop }) => {
+
   const categoriesExist = () => {
     return categories && categories.edges && categories.edges.length > 0;
   };
   const homeCollectionExist = () => {
     return shop && shop.homepageCollection && shop.homepageCollection.id && shop.homepageCollection.name;
   };
+<<<<<<< HEAD
   
+=======
+  const intl = useIntl();
+
+>>>>>>> use/react-intl
   return (
     <>
       <script className="structured-data-list" type="application/ld+json">
@@ -45,13 +55,22 @@ const Page: React.FC<{
             : null
         }
       >
+<<<<<<< HEAD
         <div className="home-page__hero-text">
+=======
+         <div className="home-page__hero-text">
+>>>>>>> use/react-intl
           <div>
             <span className="home-page__hero__title">
             {loading && !shop ? (
             <Loader />
           ) : (
+<<<<<<< HEAD
             homeCollectionExist() && <h1>{shop.homepageCollection.name}</h1>
+=======
+            homeCollectionExist() && <h1>{
+              shop.homepageCollection.translation?.name || shop.homepageCollection.name}</h1>
+>>>>>>> use/react-intl
         
           )}
             </span>
@@ -68,17 +87,35 @@ const Page: React.FC<{
                 shop.homepageCollection.name
                 )}
               >
+<<<<<<< HEAD
                 <Button>Discover</Button>
+=======
+                <Button>
+                  <FormattedMessage
+                    description="button discover home page collection"
+                    defaultMessage="discover"
+                  />
+                </Button>
+>>>>>>> use/react-intl
               </Link>
             )
           )}
         </div>
       </div>
-      <ProductsFeatured />
+      <ProductsFeatured 
+        title={intl.formatMessage({
+          defaultMessage: "Featured",
+          description: "ProductsFeatured home page section name",
+       })}/>
       {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
-            <h3>Shop by category</h3>
+            <h3>
+            <FormattedMessage
+                    description="title home page shop by category "
+                    defaultMessage="Shop by category"
+                  />
+            </h3>
             <div className="home-page__categories__list">
               {categories.edges.map(({ node: category }) => (
                 <div key={category.id}>
@@ -101,7 +138,7 @@ const Page: React.FC<{
                         })`,
                       }}
                     />
-                    <h3>{category.name}</h3>
+                    <h3>{category.translation?.name || category.name}</h3>
                   </Link>
                 </div>
               ))}

@@ -4,15 +4,28 @@ import * as React from "react";
 
 import { FormAddressType } from "./types";
 
+import { useIntl } from "react-intl";
+
 const AddressSummary: React.FC<{
   address?: FormAddressType;
   email?: string;
   paragraphRef?: React.RefObject<HTMLParagraphElement>;
 }> = ({ address, email, paragraphRef }) => {
+  const intl = useIntl();
+
   if (address) {
     return (
       <p className="address-summary" ref={paragraphRef}>
-        <strong>{`${address.firstName} ${address.lastName}`}</strong>
+        <strong> 
+          {intl.formatMessage({
+            defaultMessage: "{firstName} {lastName}",
+            description: "full name address summary title",
+          },
+          {
+            firstName: address.firstName,
+            lastName: address.lastName,
+          })}
+          </strong>
         <br />
         {address.companyName && (
           <>
@@ -37,7 +50,12 @@ const AddressSummary: React.FC<{
         <br />
         {address.phone && (
           <>
-            Phone number: {address.phone} <br />
+          {
+            intl.formatMessage({
+            defaultMessage: "Phone number: ",
+            description: "phone number AddressSummary title",
+          })}
+          {address.phone} <br />
           </>
         )}
         {email && (

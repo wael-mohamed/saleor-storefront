@@ -7,7 +7,12 @@ import { Attribute, IconButton, Tile } from "@components/atoms";
 import { AccountUpdateForm } from "./AccountUpdateForm";
 import * as S from "./styles";
 
+import { commonMessages } from "@saleor/intl";
+import { useIntl } from "react-intl";
+
 export const AccountTile: React.FC = () => {
+  const intl = useIntl();
+
   const [isEditing, setIsEditing] = React.useState(false);
   const [setAccountUpdate, { data, error }] = useAccountUpdate();
   const { data: user } = useUserDetails();
@@ -21,10 +26,18 @@ export const AccountTile: React.FC = () => {
     <S.TileWrapper>
       <Tile>
         <S.Wrapper>
-          <S.Header>MY DATA</S.Header>
+         <S.Header>
+          {intl.formatMessage({
+                defaultMessage: "MY DATA",
+                description: "my data account title",
+            })}
+          </S.Header>
           <S.Content>
             <S.HeaderSmall>
-              Personal details
+              {intl.formatMessage({
+                  defaultMessage: "Personal details",
+                  description: "personal details account title",
+              })}
               {!isEditing && (
                 <IconButton
                   name="edit"
@@ -49,11 +62,11 @@ export const AccountTile: React.FC = () => {
             ) : (
               <S.ContentOneLine>
                 <Attribute
-                  description="First Name"
+                  description={intl.formatMessage(commonMessages.firstName)}
                   attributeValue={(user && user.firstName) || "-"}
                 />
                 <Attribute
-                  description="Last Name"
+                  description={intl.formatMessage(commonMessages.lastName)}
                   attributeValue={(user && user.lastName) || "-"}
                 />
               </S.ContentOneLine>

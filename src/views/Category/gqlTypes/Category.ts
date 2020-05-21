@@ -219,7 +219,14 @@ export interface Category_products_edges_node_category {
    */
   id: string;
   name: string;
+  translation: Category_products_edges_node_category_translation | null;
 }
+
+export interface Category_products_edges_node_category_translation{
+  __typename: "CategoryTranslation";
+  name: string;
+}
+
 
 export interface Category_products_edges_node {
   __typename: "Product";
@@ -241,6 +248,15 @@ export interface Category_products_edges_node {
    */
   pricing: Category_products_edges_node_pricing | null;
   category: Category_products_edges_node_category | null;
+  translation: Category_products_edges_node_translation | null;
+}
+
+export interface Category_products_edges_node_translation{
+  __typename: "ProductTranslation";
+  name: string;
+  descriptionJson: any;
+  seoDescription: string;
+  seoTitle: string;
 }
 
 export interface Category_products_edges {
@@ -344,7 +360,13 @@ export interface Category_attributes_edges_node_values {
    * Internal representation of a value (unique per attribute).
    */
   slug: string | null;
+  translation: Category_attributes_edges_node_values_translation;
 }
+
+export interface Category_attributes_edges_node_values_translation {
+  name: string;
+}
+
 
 export interface Category_attributes_edges_node {
   __typename: "Attribute";
@@ -364,6 +386,12 @@ export interface Category_attributes_edges_node {
    * List of attribute's values.
    */
   values: (Category_attributes_edges_node_values | null)[] | null;
+  translation: Category_attributes_edges_node_translation | null; 
+}
+
+export interface Category_attributes_edges_node_translation {
+  __typename: "AttributeTranslation";
+  name: string;
 }
 
 export interface Category_attributes_edges {
@@ -402,4 +430,5 @@ export interface CategoryVariables {
   sortBy?: ProductOrder | null;
   priceLte?: number | null;
   priceGte?: number | null;
+  locale: any;
 }
