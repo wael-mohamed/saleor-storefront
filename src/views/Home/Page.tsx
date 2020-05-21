@@ -17,11 +17,7 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
-<<<<<<< HEAD
-import { generateCollectionUrl } from "@temp/@next/utils/core";
-=======
 import { FormattedMessage, useIntl } from "react-intl";
->>>>>>> use/react-intl
 
 const Page: React.FC<{
   loading: boolean;
@@ -36,12 +32,8 @@ const Page: React.FC<{
   const homeCollectionExist = () => {
     return shop && shop.homepageCollection && shop.homepageCollection.id && shop.homepageCollection.name;
   };
-<<<<<<< HEAD
-  
-=======
   const intl = useIntl();
 
->>>>>>> use/react-intl
   return (
     <>
       <script className="structured-data-list" type="application/ld+json">
@@ -55,22 +47,14 @@ const Page: React.FC<{
             : null
         }
       >
-<<<<<<< HEAD
-        <div className="home-page__hero-text">
-=======
          <div className="home-page__hero-text">
->>>>>>> use/react-intl
           <div>
             <span className="home-page__hero__title">
             {loading && !shop ? (
             <Loader />
           ) : (
-<<<<<<< HEAD
-            homeCollectionExist() && <h1>{shop.homepageCollection.name}</h1>
-=======
             homeCollectionExist() && <h1>{
               shop.homepageCollection.translation?.name || shop.homepageCollection.name}</h1>
->>>>>>> use/react-intl
         
           )}
             </span>
@@ -87,16 +71,12 @@ const Page: React.FC<{
                 shop.homepageCollection.name
                 )}
               >
-<<<<<<< HEAD
-                <Button>Discover</Button>
-=======
                 <Button>
                   <FormattedMessage
                     description="button discover home page collection"
                     defaultMessage="discover"
                   />
                 </Button>
->>>>>>> use/react-intl
               </Link>
             )
           )}
