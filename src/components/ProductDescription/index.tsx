@@ -75,8 +75,28 @@ class ProductDescription extends React.Component<
         );
       }
     }
+    const priceUndiscounted = this.props.pricing.priceRangeUndiscounted.start;
+    const price = this.props.pricing.priceRange.start;
+    const getProductPrice = () => {
+      if (!isEqual(price, priceUndiscounted))  {
+        return (
+          <>
+            <span className="product-list-item__undiscounted_price">
+              <TaxedMoney taxedMoney={priceUndiscounted} />
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          </>
+        );
+      }
+    };
+
     if (isEqual(min, max)) {
-      return <TaxedMoney taxedMoney={min} />;
+      return (
+        <>
+        {getProductPrice()}
+        <TaxedMoney taxedMoney={min} />
+      </>
+      );
     } else {
       return (
         <>
