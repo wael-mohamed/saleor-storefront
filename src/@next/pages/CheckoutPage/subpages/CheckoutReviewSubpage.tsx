@@ -12,6 +12,8 @@ import { useCheckout } from "@sdk/react";
 import { CHECKOUT_STEPS } from "@temp/core/config";
 import { IFormError } from "@types";
 
+import { useIntl } from "react-intl"
+
 export interface ICheckoutReviewSubpageHandles {
   complete: () => void;
 }
@@ -27,6 +29,8 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
   { selectedPaymentGatewayToken, changeSubmitProgress, ...props }: IProps,
   ref
 ) => {
+  const intl = useIntl();
+
   const history = useHistory();
   const { checkout, payment, completeCheckout } = useCheckout();
 
@@ -47,8 +51,10 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
     : undefined;
 
   const getPaymentMethodDescription = () => {
-    if (payment?.gateway === "mirumee.payments.dummy") {
-      return `Dummy: ${
+    if (payment?.gateway === "wael.payments.cashOnDelivery") {
+      return intl.formatMessage({defaultMessage:"Cash On Delivery"})
+    } else if (payment?.gateway === "mirumee.payments.dummy") {
+            return `Dummy: ${
         dummyStatuses.find(
           status => status.token === selectedPaymentGatewayToken
         )?.label

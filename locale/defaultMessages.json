@@ -168,10 +168,6 @@
     "context": "ZIP/Postal Code label",
     "string": "ZIP/Postal Code"
   },
-  "src_dot_@next_dot_components_dot_organisms_dot_AddressForm_dot_AddressFormContent_dot_2950411968": {
-    "context": "company name label",
-    "string": "Company Name (Optional)"
-  },
   "src_dot_@next_dot_components_dot_organisms_dot_AddressForm_dot_AddressFormContent_dot_3121963259": {
     "context": "Address line 2 label",
     "string": "Address line 2"
@@ -300,6 +296,9 @@
   },
   "src_dot_@next_dot_pages_dot_CartPage_dot_CartPage_dot_36913639": {
     "string": "CONTINUE SHOPPING"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_subpages_dot_CheckoutReviewSubpage_dot_3497168658": {
+    "string": "Cash On Delivery"
   },
   "src_dot_@next_dot_pages_dot_PasswordReset_dot_PasswordReset_dot_1794965170": {
     "string": "Password is to short!"
