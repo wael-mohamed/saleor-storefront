@@ -117,6 +117,10 @@ export interface ProductVariantFields_attributes_attribute {
    * Name of an attribute displayed in the interface.
    */
   name: string | null;
+  /**
+   * Internal representation of an attribute name.
+   */
+  slug: string | null;
 }
 
 export interface ProductVariantFields_attributes_values {
@@ -156,13 +160,13 @@ export interface ProductVariantFields {
   sku: string;
   name: string;
   /**
-   * Quantity of a product available for sale.
-   */
-  stockQuantity: number;
-  /**
    * Whether the variant is in stock and visible or not.
    */
   isAvailable: boolean | null;
+  /**
+   * Quantity of a product available for sale in one checkout.
+   */
+  quantityAvailable: number;
   /**
    * List of images for the product variant.
    */

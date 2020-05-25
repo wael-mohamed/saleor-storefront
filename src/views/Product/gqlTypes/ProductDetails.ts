@@ -2,6 +2,8 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+import { CountryCode } from "./../../../../gqlTypes/globalTypes";
+
 // ====================================================
 // GraphQL query operation: ProductDetails
 // ====================================================
@@ -620,6 +622,10 @@ export interface ProductDetails_product_variants_attributes_attribute {
    * Name of an attribute displayed in the interface.
    */
   name: string | null;
+  /**
+   * Internal representation of an attribute name.
+   */
+  slug: string | null;
 }
 
 export interface ProductDetails_product_variants_attributes_values {
@@ -659,13 +665,13 @@ export interface ProductDetails_product_variants {
   sku: string;
   name: string;
   /**
-   * Quantity of a product available for sale.
-   */
-  stockQuantity: number;
-  /**
    * Whether the variant is in stock and visible or not.
    */
   isAvailable: boolean | null;
+  /**
+   * Quantity of a product available for sale in one checkout.
+   */
+  quantityAvailable: number;
   /**
    * List of images for the product variant.
    */
@@ -730,4 +736,5 @@ export interface ProductDetails {
 
 export interface ProductDetailsVariables {
   id: string;
+  countryCode?: CountryCode | null;
 }

@@ -4,6 +4,14 @@ All notable, unreleased changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- Add Cypress tags to all of the buttons (also speed up tests) - #718 by @krzysztofwolski
+- Automatically choose variant attributes from url in ProductVariantPicker - #708 by @AlicjaSzu
+
+## 2.10.1
+
+- Replace stockQuantity field with quantityAvailable - #723 by @AlicjaSzu
+- Regenerate types - #712 by @dominik-zeglen
+
 ## 2.10.0
 
 - Account confirmation mechanism - #565 by @tomaszszymanski129
@@ -35,6 +43,7 @@ All notable, unreleased changes to this project will be documented in this file.
 - Hide payment options - #678 by @orzechdev
 - Fix unhandled JWT token expiration - #696 by @orzechdev
 - Regenerate types - #712 by @dominik-zeglen
+- Replace stockQuantity field with quantityAvailable - #723 by @AlicjaSzu
 
 ## 0.7.0
 
