@@ -137,7 +137,9 @@ const CheckoutPaymentSubpageWithRef: RefForwardingComponent<
     }
     const shippingPhone = address?.phone ;
 
-    if (!shippingPhone) {
+    if (!shippingPhone&&
+        !billingAsShippingState&&
+        !isShippingRequiredForProducts) {
       setBillingErrors([{ field: "phone", message: "Please provide your phone number." }]);
       return;
     }
