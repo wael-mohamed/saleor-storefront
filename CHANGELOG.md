@@ -4,6 +4,15 @@ All notable, unreleased changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## 2.10.2
+
+- Fix fetching `quantityAvailable` field - #738 by @AlicjaSzu
+
+## 2.10.1
+
+- Replace stockQuantity field with quantityAvailable - #723 by @AlicjaSzu
+- Regenerate types - #712 by @dominik-zeglen
+
 ## 2.10.0
 
 - Account confirmation mechanism - #565 by @tomaszszymanski129
@@ -33,6 +42,7 @@ All notable, unreleased changes to this project will be documented in this file.
 - Update GraphQL schema - #567 by @orzechdev
 - Completely recreate checkout and cart, with new checkout nad cart SDK - #639 by @orzechdev, @mateuszkula
 - Hide payment options - #678 by @orzechdev
+- Fix unhandled JWT token expiration - #696 by @orzechdev
 
 ## 0.7.0
 
