@@ -103,7 +103,7 @@ const Page: React.FC<{
             </h3>
             <div className="home-page__categories__list">
               {collections.edges.map(({ node: collection }) => (
-                homeCollectionExist() && (collection.id != shop.homepageCollection.id) && collection.backgroundImage?.url &&
+                (collection.id !== shop.homepageCollection?.id) && collection.backgroundImage?.url &&
                 <div key={collection.id}>
                   <Link
                     to={generateCollectionUrl(collection.id, collection.name)}
