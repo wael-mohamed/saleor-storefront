@@ -44,6 +44,14 @@ const Page: React.FC<{
       <script className="structured-data-list" type="application/ld+json">
         {structuredData(shop)}
       </script>
+
+            <span className="home-page__hero__title home-page__hero__title__red">
+              {">>> "}
+                <FormattedMessage
+                    defaultMessage="Free delivery from 6000 DZD of purchases"
+                  />
+            </span>
+
       <div
         className="home-page__hero"
         style={

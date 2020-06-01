@@ -40,12 +40,14 @@
       transform: skew(0deg);
       padding: $spacer $spacer * 3;
       margin-bottom: $spacer / 2;
-
+      
       @media (max-width: $small-screen) {
         padding: 0.6rem $spacer;
         width: calc(100% - 4rem);
       }
-
+      &__red{
+        color: $turquoise;
+      }
       h1 {
         display: inline-block;
         transform: skew(-0deg);
