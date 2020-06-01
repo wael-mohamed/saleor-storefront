@@ -35,6 +35,7 @@ const View: React.FC = () => {
               }
               categories={data.categories}
               shop={data.shop}
+              collections={data.collections}
             />
           </MetaWrapper>
         );

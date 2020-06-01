@@ -5,11 +5,12 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 import { Button, Loader, ProductsFeatured } from "../../components";
-import { generateCategoryUrl, generateCollectionUrl } from "../../core/utils";
+import { generateCollectionUrl } from "../../core/utils";
 
 import {
   ProductsList_categories,
   ProductsList_shop,
+  ProductsList_shop_Collections,
   ProductsList_shop_homepageCollection_backgroundImage,
 } from "./gqlTypes/ProductsList";
 
@@ -24,10 +25,14 @@ const Page: React.FC<{
   categories: ProductsList_categories;
   backgroundImage: ProductsList_shop_homepageCollection_backgroundImage;
   shop: ProductsList_shop;
-}> = ({ loading, categories, backgroundImage, shop }) => {
+  collections: ProductsList_shop_Collections;
+}> = ({ loading, categories, backgroundImage, shop, collections }) => {
 
-  const categoriesExist = () => {
-    return categories && categories.edges && categories.edges.length > 0;
+  // const categoriesExist = () => {
+  //   return categories && categories.edges && categories.edges.length > 0;
+  // };
+  const collectionsExist = () => {
+    return collections && collections.edges && collections.edges.length > 0;
   };
   const homeCollectionExist = () => {
     return shop && shop.homepageCollection && shop.homepageCollection.id && shop.homepageCollection.name;
@@ -87,38 +92,39 @@ const Page: React.FC<{
           defaultMessage: "Featured",
           description: "ProductsFeatured home page section name",
        })}/>
-      {categoriesExist() && (
+      {collectionsExist() && (
         <div className="home-page__categories">
           <div className="container">
             <h3>
-            <FormattedMessage
-                    description="title home page shop by category "
-                    defaultMessage="Shop by category"
-                  />
+              <FormattedMessage
+                description="title home page shop by collection"
+                defaultMessage="Shop by collection"
+              />
             </h3>
             <div className="home-page__categories__list">
-              {categories.edges.map(({ node: category }) => (
-                <div key={category.id}>
+              {collections.edges.map(({ node: collection }) => (
+                homeCollectionExist() && (collection.id != shop.homepageCollection.id) && collection.backgroundImage?.url &&
+                <div key={collection.id}>
                   <Link
-                    to={generateCategoryUrl(category.id, category.name)}
-                    key={category.id}
+                    to={generateCollectionUrl(collection.id, collection.name)}
+                    key={collection.id}
                   >
                     <div
                       className={classNames(
                         "home-page__categories__list__image",
                         {
-                          "home-page__categories__list__image--no-photo": !category.backgroundImage,
+                          "home-page__categories__list__image--no-photo": !collection.backgroundImage,
                         }
                       )}
                       style={{
                         backgroundImage: `url(${
-                          category.backgroundImage
-                            ? category.backgroundImage.url
+                          collection.backgroundImage
+                            ? collection.backgroundImage.url
                             : noPhotoImg
                         })`,
                       }}
                     />
-                    <h3>{category.translation?.name || category.name}</h3>
+                    <h3>{collection.translation?.name || collection.name}</h3>
                   </Link>
                 </div>
               ))}

@@ -5,8 +5,8 @@ import { TypedQuery } from "../../core/queries";
 import { ProductsList, ProductsListVariables } from "./gqlTypes/ProductsList";
 
 export const homePageQuery = gql`
-  query ProductsList(
-    $locale:LanguageCodeEnum!
+query ProductsList(
+  $locale:LanguageCodeEnum!
   ) {
     shop {
       description
@@ -32,7 +32,24 @@ export const homePageQuery = gql`
         }
       }
     }
-  }
+    collections(
+      sortBy: {field:NAME,direction:ASC}
+      first: 10){
+        edges{
+          node{
+            id
+            name
+            backgroundImage{
+              url
+            }
+            translation(languageCode: $locale){
+              name
+            }
+          }}
+        }
+    
+}
 `;
 
 export const TypedHomePageQuery = TypedQuery<ProductsList, ProductsListVariables>(homePageQuery);
+      

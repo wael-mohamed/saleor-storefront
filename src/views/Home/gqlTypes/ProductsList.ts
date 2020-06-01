@@ -22,7 +22,7 @@ export interface ProductsList_shop_homepageCollection {
   id: string;
   backgroundImage: ProductsList_shop_homepageCollection_backgroundImage | null;
   name: string;
-  translation: ProductsList_categories_edges_node_translation | null;
+  translation: ProductsList_collection_edges_node_translation | null;
 }
 
 export interface ProductsList_shop {
@@ -87,6 +87,36 @@ export interface ProductsList {
    * List of the shop's categories.
    */
   categories: ProductsList_categories | null;
+  collections: ProductsList_shop_Collections | null;
+}
+export interface ProductsList_shop_Collections {
+  __typename: "CollectionCountableConnection";
+  /**
+   * Pagination data for this connection.
+   */
+  edges: ProductsList_collections_edges[];
+}
+
+export interface ProductsList_collections_edges {
+  __typename: "CollectionCountableEdge";
+  /**
+   * The item at the end of the edge.
+   */
+  node: ProductsList_collections_edges_node;
+}
+export interface ProductsList_collections_edges_node {
+  __typename: "Collection";
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  backgroundImage: ProductsList_shop_homepageCollection_backgroundImage | null;
+  name: string;
+  translation: ProductsList_collection_edges_node_translation | null;
+}
+export interface ProductsList_collection_edges_node_translation {
+  __typename: "CollectionTranslation";
+  name: string;
 }
 export interface ProductsListVariables {
   locale: string;
