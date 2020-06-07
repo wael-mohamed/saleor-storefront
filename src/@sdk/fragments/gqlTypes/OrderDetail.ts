@@ -2,7 +2,10 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { PaymentChargeStatusEnum, OrderStatus } from "./../../gqlTypes/globalTypes";
+import {
+  PaymentChargeStatusEnum,
+  OrderStatus,
+} from "./../../gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL fragment: OrderDetail
@@ -147,6 +150,12 @@ export interface OrderDetail_lines_variant_attributes_attribute {
    * Name of an attribute displayed in the interface.
    */
   name: string | null;
+  translation: OrderDetail_lines_variant_attributes_attribute_translation | null;
+}
+
+export interface OrderDetail_lines_variant_attributes_attribute_translation {
+  __typename: "AttributeTranslation";
+  name: string;
 }
 
 export interface OrderDetail_lines_variant_attributes_values {
@@ -163,6 +172,11 @@ export interface OrderDetail_lines_variant_attributes_values {
    * Name of a value displayed in the interface.
    */
   value: string | null;
+  translation: OrderDetail_lines_variant_attributes_values_translation | null;
+}
+export interface OrderDetail_lines_variant_attributes_values_translation {
+  __typename: "AttributeValueTranslation";
+  name: string;
 }
 
 export interface OrderDetail_lines_variant_attributes {
@@ -218,6 +232,14 @@ export interface OrderDetail_lines_variant_product {
    */
   thumbnail2x: OrderDetail_lines_variant_product_thumbnail2x | null;
   productType: OrderDetail_lines_variant_product_productType;
+  translation: OrderDetail_lines_variant_product_translation | null;
+}
+export interface OrderDetail_lines_variant_product_translation {
+  __typename: "ProductTranslation";
+  name: string;
+  descriptionJson: any;
+  seoDescription: string;
+  seoTitle: string;
 }
 
 export interface OrderDetail_lines_variant {
@@ -245,6 +267,12 @@ export interface OrderDetail_lines_variant {
    */
   attributes: OrderDetail_lines_variant_attributes[];
   product: OrderDetail_lines_variant_product;
+  translation: OrderDetail_lines_variant_translation | null;
+}
+
+export interface OrderDetail_lines_variant_translation {
+  __typename: "ProductVariantTranslation";
+  name: string;
 }
 
 export interface OrderDetail_lines_unitPrice_gross {

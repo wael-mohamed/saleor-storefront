@@ -2,7 +2,10 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { PaymentChargeStatusEnum, OrderStatus } from "./../../gqlTypes/globalTypes";
+import {
+  PaymentChargeStatusEnum,
+  OrderStatus,
+} from "./../../gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: CompleteCheckout
@@ -160,6 +163,12 @@ export interface CompleteCheckout_checkoutComplete_order_lines_variant_attribute
    * Name of an attribute displayed in the interface.
    */
   name: string | null;
+  translation: CompleteCheckout_checkoutComplete_order_lines_variant_attributes_attribute_translation | null;
+}
+
+export interface CompleteCheckout_checkoutComplete_order_lines_variant_attributes_attribute_translation {
+  __typename: "AttributeTranslation";
+  name: string;
 }
 
 export interface CompleteCheckout_checkoutComplete_order_lines_variant_attributes_values {
@@ -176,6 +185,11 @@ export interface CompleteCheckout_checkoutComplete_order_lines_variant_attribute
    * Name of a value displayed in the interface.
    */
   value: string | null;
+  translation: CompleteCheckout_checkoutComplete_order_lines_variant_attributes_values_translation | null;
+}
+export interface CompleteCheckout_checkoutComplete_order_lines_variant_attributes_values_translation {
+  __typename: "AttributeValueTranslation";
+  name: string;
 }
 
 export interface CompleteCheckout_checkoutComplete_order_lines_variant_attributes {
@@ -231,6 +245,14 @@ export interface CompleteCheckout_checkoutComplete_order_lines_variant_product {
    */
   thumbnail2x: CompleteCheckout_checkoutComplete_order_lines_variant_product_thumbnail2x | null;
   productType: CompleteCheckout_checkoutComplete_order_lines_variant_product_productType;
+  translation: CompleteCheckout_checkoutComplete_order_lines_variant_product_translation | null;
+}
+export interface CompleteCheckout_checkoutComplete_order_lines_variant_product_translation {
+  __typename: "ProductTranslation";
+  name: string;
+  descriptionJson: any;
+  seoDescription: string;
+  seoTitle: string;
 }
 
 export interface CompleteCheckout_checkoutComplete_order_lines_variant {
@@ -258,6 +280,12 @@ export interface CompleteCheckout_checkoutComplete_order_lines_variant {
    */
   attributes: CompleteCheckout_checkoutComplete_order_lines_variant_attributes[];
   product: CompleteCheckout_checkoutComplete_order_lines_variant_product;
+  translation: CompleteCheckout_checkoutComplete_order_lines_variant_translation | null;
+}
+
+export interface CompleteCheckout_checkoutComplete_order_lines_variant_translation {
+  __typename: "ProductVariantTranslation";
+  name: string;
 }
 
 export interface CompleteCheckout_checkoutComplete_order_lines_unitPrice_gross {
