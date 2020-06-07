@@ -40,7 +40,6 @@ export const checkoutProductVariants = gql`
     productVariants(ids: $ids, first: 100) {
       edges {
         node {
-          stockQuantity
           ...ProductVariant
         }
       }

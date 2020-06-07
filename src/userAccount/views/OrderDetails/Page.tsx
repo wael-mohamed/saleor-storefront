@@ -2,22 +2,19 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 import { TaxedMoney } from "@components/containers";
+import {
+  OrderDetail,
+  OrderDetail_lines,
+} from "@sdk/fragments/gqlTypes/OrderDetail";
 
 import { AddressSummary, CartTable, NotFound } from "../../../components";
 import { ILine } from "../../../components/CartTable/ProductRow";
-import { OrderById_order, OrderById_order_lines } from "./gqlTypes/OrderById";
-import {
-  OrderByToken_orderByToken,
-  OrderByToken_orderByToken_lines,
-} from "./gqlTypes/OrderByToken";
 
 import { orderHistoryUrl } from "../../../app/routes";
 
 import { useIntl } from "react-intl";
 
-const extractOrderLines = (
-  lines: Array<OrderById_order_lines | OrderByToken_orderByToken_lines>
-): ILine[] => {
+const extractOrderLines = (lines: OrderDetail_lines[]): ILine[] => {
   return lines
     .map(line => ({
       quantity: line.quantity,
@@ -41,11 +38,10 @@ const extractOrderLines = (
 
 const Page: React.FC<{
   guest: boolean;
-  order: OrderById_order | OrderByToken_orderByToken;
+  order: OrderDetail;
 }> = ({ guest, order }) => {
   const intl = useIntl();
-
-  return(order ? (
+  return order ? (
     <>
       {!guest && (
         <Link className="order-details__link" to={orderHistoryUrl}>
@@ -56,13 +52,14 @@ const Page: React.FC<{
         </Link>
       )}
       <h3>
-        {intl.formatMessage({
-          defaultMessage: "Your order nr: {number}",
-          description: "order number order history",
-        },
-        {
-          number: order.number,
-        }
+        {intl.formatMessage(
+          {
+            defaultMessage: "Your order nr: {number}",
+            description: "order number order history",
+          },
+          {
+            number: order.number,
+          }
         )}
       </h3>
       <p className="order-details__status">
@@ -77,10 +74,10 @@ const Page: React.FC<{
       <div className="order-details__summary">
         <div>
           <h4>
-          {intl.formatMessage({
-            defaultMessage: "Shipping Address",
-            description: "Shipping Address order history",
-          })}
+            {intl.formatMessage({
+              defaultMessage: "Shipping Address",
+              description: "Shipping Address order history",
+            })}
           </h4>
           <AddressSummary
             address={order.shippingAddress}
@@ -92,6 +89,7 @@ const Page: React.FC<{
     </>
   ) : (
     <NotFound />
-  ))}
+  );
+};
 
 export default Page;

@@ -46,7 +46,7 @@ const Breadcrumbs: React.FC<{
 }> = ({ breadcrumbs }) => {
   const intl = useIntl();
 
-  return(
+  return (
     <Media
       query={{
         minWidth: smallScreen,
@@ -57,11 +57,10 @@ const Breadcrumbs: React.FC<{
           <ul className="breadcrumbs">
             <li>
               <Link to={baseUrl}>
-              {
-                intl.formatMessage({
-                defaultMessage: "Home",
-                description: "home link breadcrumbs title",
-              })}
+                {intl.formatMessage({
+                  defaultMessage: "Home",
+                  description: "home link breadcrumbs title",
+                })}
               </Link>
             </li>
             {breadcrumbs.map((breadcrumb, index) => (
@@ -77,15 +76,18 @@ const Breadcrumbs: React.FC<{
           </ul>
         ) : (
           <div className="breadcrumbs">
-            <Link to={getBackLink(breadcrumbs)}>     {
-                intl.formatMessage({
+            <Link to={getBackLink(breadcrumbs)}>
+              {" "}
+              {intl.formatMessage({
                 defaultMessage: "Back",
                 description: "back link breadcrumbs title",
-              })}</Link>
+              })}
+            </Link>
           </div>
         )
       }
     </Media>
-  )}
+  );
+};
 
 export default Breadcrumbs;

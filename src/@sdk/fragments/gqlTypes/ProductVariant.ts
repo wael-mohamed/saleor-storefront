@@ -204,11 +204,14 @@ export interface ProductVariant {
   id: string;
   name: string;
   translation: ProductVariant_translation | null;
-  sku: string;
   /**
    * Quantity of a product available for sale.
    */
-  stockQuantity: number;
+  sku: string;
+  /**
+   * Quantity of a product available for sale in one checkout.
+   */
+  quantityAvailable: number;
   /**
    * Whether the variant is in stock and visible or not.
    */

@@ -26,43 +26,48 @@ export const View: React.FC<ViewProps> = ({
 }) => {
   const { locale } = useLocale();
 
-  return(
-  <TypedArticleQuery loaderFull variables={{ slug, locale:locale.toUpperCase()}} errorPolicy="all">
-    {({ data }) => {
-      const navigation = STATIC_PAGES.map(page => ({
-        ...page,
-        active: page.url === window.location.pathname,
-      }));
-      const { page, shop } = data;
+  return (
+    <TypedArticleQuery
+      loaderFull
+      variables={{ slug, locale: locale.toUpperCase() }}
+      errorPolicy="all"
+    >
+      {({ data }) => {
+        const navigation = STATIC_PAGES.map(page => ({
+          ...page,
+          active: page.url === window.location.pathname,
+        }));
+        const { page, shop } = data;
 
-      if (canDisplay(page)) {
-        const breadcrumbs = [
-          {
-            link: generatePageUrl(slug),
-            value: page.title,
-          },
-        ];
-        return (
-          <MetaWrapper
-            meta={{
-              description: page.seoDescription,
-              title: page.seoTitle,
-            }}
-          >
-            <Page
-              breadcrumbs={breadcrumbs}
-              headerImage={getHeaderImage(shop)}
-              navigation={navigation}
-              page={data.page}
-            />
-          </MetaWrapper>
-        );
-      }
+        if (canDisplay(page)) {
+          const breadcrumbs = [
+            {
+              link: generatePageUrl(slug),
+              value: page.title,
+            },
+          ];
+          return (
+            <MetaWrapper
+              meta={{
+                description: page.seoDescription,
+                title: page.seoTitle,
+              }}
+            >
+              <Page
+                breadcrumbs={breadcrumbs}
+                headerImage={getHeaderImage(shop)}
+                navigation={navigation}
+                page={data.page}
+              />
+            </MetaWrapper>
+          );
+        }
 
-      if (page === null) {
-        return <NotFound />;
-      }
-    }}
-  </TypedArticleQuery>
-)};
+        if (page === null) {
+          return <NotFound />;
+        }
+      }}
+    </TypedArticleQuery>
+  );
+};
 export default View;

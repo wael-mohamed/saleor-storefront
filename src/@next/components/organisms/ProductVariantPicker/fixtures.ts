@@ -10,7 +10,7 @@ export const productVariants: ProductDetails_product_variants[] = [
       __typename: "ProductVariantTranslation",
       name: "T 1l / cotton / yellow",
     },
-    stockQuantity: 50,
+    quantityAvailable: 50,
     isAvailable: true,
     pricing: {
       onSale: false,
@@ -126,7 +126,7 @@ export const productVariants: ProductDetails_product_variants[] = [
       __typename: "ProductVariantTranslation",
       name: "T 2l / wool / red",
     },
-    stockQuantity: 50,
+    quantityAvailable: 50,
     isAvailable: true,
     pricing: {
       onSale: false,
@@ -242,7 +242,7 @@ export const productVariants: ProductDetails_product_variants[] = [
       __typename: "ProductVariantTranslation",
       name: "T 500ml / wool / turquoise",
     },
-    stockQuantity: 50,
+    quantityAvailable: 50,
     isAvailable: true,
     pricing: {
       onSale: false,

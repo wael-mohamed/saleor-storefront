@@ -2,6 +2,8 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+import { CountryCode } from "./../../../../gqlTypes/globalTypes";
+
 // ====================================================
 // GraphQL query operation: ProductDetails
 // ====================================================
@@ -436,14 +438,13 @@ export interface ProductDetails_product_category_products_edges_node {
   translation: ProductDetails_product_category_products_edges_node_translation | null;
 }
 
-export interface ProductDetails_product_category_products_edges_node_translation{
+export interface ProductDetails_product_category_products_edges_node_translation {
   __typename: "ProductTranslation";
   name: string;
   descriptionJson: any;
   seoDescription: string;
   seoTitle: string;
 }
-
 
 export interface ProductDetails_product_category_products_edges {
   __typename: "ProductCountableEdge";
@@ -496,7 +497,7 @@ export interface ProductDetails_product_attributes_attribute {
   translation: ProductDetails_product_attributes_attribute_translation | null;
 }
 
-export interface ProductDetails_product_attributes_attribute_translation{
+export interface ProductDetails_product_attributes_attribute_translation {
   __typename: "AttributeTranslation";
   name: string;
 }
@@ -514,7 +515,7 @@ export interface ProductDetails_product_attributes_values {
   translation: ProductDetails_product_attributes_values_translation | null;
 }
 
-export interface ProductDetails_product_attributes_values_translation{
+export interface ProductDetails_product_attributes_values_translation {
   __typename: "ProductVariantTranslation";
   name: string;
 }
@@ -645,7 +646,7 @@ export interface ProductDetails_product_variants_attributes_attribute {
   translation: ProductDetails_product_variants_attributes_attribute_translation | null;
 }
 
-export interface ProductDetails_product_variants_attributes_attribute_translation{
+export interface ProductDetails_product_variants_attributes_attribute_translation {
   __typename: "AttributeTranslation";
   name: string;
 }
@@ -667,7 +668,7 @@ export interface ProductDetails_product_variants_attributes_values {
   translation: ProductDetails_product_variants_attributes_values_translation | null;
 }
 
-export interface ProductDetails_product_variants_attributes_values_translation{
+export interface ProductDetails_product_variants_attributes_values_translation {
   __typename: "AttributeValueTranslation";
   name: string;
 }
@@ -693,13 +694,13 @@ export interface ProductDetails_product_variants {
   sku: string;
   name: string;
   /**
-   * Quantity of a product available for sale.
-   */
-  stockQuantity: number;
-  /**
    * Whether the variant is in stock and visible or not.
    */
   isAvailable: boolean | null;
+  /**
+   * Quantity of a product available for sale in one checkout.
+   */
+  quantityAvailable: number;
   /**
    * List of images for the product variant.
    */
@@ -715,7 +716,7 @@ export interface ProductDetails_product_variants {
   translation: ProductDetails_product_variants_translation | null;
 }
 
-export interface ProductDetails_product_variants_translation{
+export interface ProductDetails_product_variants_translation {
   __typename: "ProductVariantTranslation";
   name: string;
 }
@@ -762,7 +763,7 @@ export interface ProductDetails_product {
   translation: ProductDetails_product_translation | null;
 }
 
-export interface ProductDetails_product_translation{
+export interface ProductDetails_product_translation {
   __typename: "ProductTranslation";
   name: string;
   descriptionJson: any;
@@ -779,5 +780,6 @@ export interface ProductDetails {
 
 export interface ProductDetailsVariables {
   id: string;
-  locale:string;
+  locale: string;
+  countryCode?: CountryCode | null;
 }

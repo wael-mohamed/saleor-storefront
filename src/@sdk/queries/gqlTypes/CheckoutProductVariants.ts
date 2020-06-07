@@ -198,15 +198,15 @@ export interface CheckoutProductVariants_productVariants_edges_node_product_tran
 export interface CheckoutProductVariants_productVariants_edges_node {
   __typename: "ProductVariant";
   /**
-   * Quantity of a product available for sale.
-   */
-  stockQuantity: number;
-  /**
    * The ID of the object.
    */
   id: string;
   name: string;
   sku: string;
+  /**
+   * Quantity of a product available for sale in one checkout.
+   */
+  quantityAvailable: number;
   /**
    * Whether the variant is in stock and visible or not.
    */

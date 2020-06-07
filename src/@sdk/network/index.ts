@@ -76,10 +76,7 @@ export class NetworkManager implements INetworkManager {
     this.client = client;
   }
 
-  getCheckout = async (
-    checkoutToken: string | null,
-    locale: string = "EN"
-    ) => {
+  getCheckout = async (checkoutToken: string | null, locale: string = "EN") => {
     let checkout: Checkout | null;
     try {
       checkout = await new Promise((resolve, reject) => {
@@ -220,8 +217,8 @@ export class NetworkManager implements INetworkManager {
               name: edge.node.name,
               pricing: edge.node.pricing,
               product: edge.node.product,
+              quantityAvailable: edge.node.quantityAvailable,
               sku: edge.node.sku,
-              stockQuantity: edge.node.stockQuantity,
               translation: edge.node.translation,
             },
           };
@@ -371,10 +368,7 @@ export class NetworkManager implements INetworkManager {
     return {};
   };
 
-  setCartItem = async (
-    checkout: ICheckoutModel,
-    locale: string = "EN"
-    ) => {
+  setCartItem = async (checkout: ICheckoutModel, locale: string = "EN") => {
     const checkoutId = checkout.id;
     const lines = checkout.lines;
 
@@ -609,7 +603,7 @@ export class NetworkManager implements INetworkManager {
     shippingMethodId: string,
     checkoutId: string,
     locale: string = "EN"
-    ) => {
+  ) => {
     try {
       const { data, errors } = await this.client.mutate<
         UpdateCheckoutShippingMethod,
@@ -651,7 +645,7 @@ export class NetworkManager implements INetworkManager {
     promoCode: string,
     checkoutId: string,
     locale: string = "EN"
-    ) => {
+  ) => {
     try {
       const { data, errors } = await this.client.mutate<
         AddCheckoutPromoCode,
@@ -687,7 +681,7 @@ export class NetworkManager implements INetworkManager {
     promoCode: string,
     checkoutId: string,
     locale: string = "EN"
-    ) => {
+  ) => {
     try {
       const { data, errors } = await this.client.mutate<
         RemoveCheckoutPromoCode,
@@ -784,19 +778,16 @@ export class NetworkManager implements INetworkManager {
     }
   };
 
-  completeCheckout = async (
-    checkoutId: string,
-    locale: string = "EN"
-    ) => {
+  completeCheckout = async (checkoutId: string, locale: string = "EN") => {
     try {
       const { data, errors } = await this.client.mutate<
         CompleteCheckout,
         CompleteCheckoutVariables
       >({
         mutation: CheckoutMutations.completeCheckoutMutation,
-        variables: { 
+        variables: {
           checkoutId,
-          locale, 
+          locale,
         },
       });
 
@@ -861,8 +852,8 @@ export class NetworkManager implements INetworkManager {
             name: itemVariant?.name,
             pricing: itemVariant?.pricing,
             product: itemVariant?.product,
+            quantityAvailable: itemVariant?.quantityAvailable,
             sku: itemVariant?.sku,
-            stockQuantity: itemVariant?.stockQuantity,
             translation: itemVariant?.translation,
           },
         };

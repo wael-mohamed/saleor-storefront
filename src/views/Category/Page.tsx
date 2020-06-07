@@ -67,8 +67,8 @@ const Page: React.FC<PageProps> = ({
 
   const getAttribute = (attributeSlug: string, valueSlug: string) => {
     const value = attributes
-    .find(({ slug }) => attributeSlug === slug)
-    .values.find(({ slug }) => valueSlug === slug)
+      .find(({ slug }) => attributeSlug === slug)
+      .values.find(({ slug }) => valueSlug === slug);
     return {
       attributeSlug,
       valueName: value.name,
@@ -79,8 +79,8 @@ const Page: React.FC<PageProps> = ({
 
   const activeFiltersAttributes =
     filters &&
-    filters.attributes 
-    && Object.keys(filters.attributes).reduce(
+    filters.attributes &&
+    Object.keys(filters.attributes).reduce(
       (acc, key) =>
         acc.concat(
           filters.attributes[key].map(valueSlug => getAttribute(key, valueSlug))
@@ -120,10 +120,14 @@ const Page: React.FC<PageProps> = ({
         )}
       </div>
 
-      {!hasProducts && <ProductsFeatured title={intl.formatMessage({
-          defaultMessage: "You might like",
-          description: "ProductsFeatured category section name",
-       })}/>}
+      {!hasProducts && (
+        <ProductsFeatured
+          title={intl.formatMessage({
+            defaultMessage: "You might like",
+            description: "ProductsFeatured category section name",
+          })}
+        />
+      )}
     </div>
   );
 };

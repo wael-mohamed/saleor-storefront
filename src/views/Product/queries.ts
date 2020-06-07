@@ -1,5 +1,4 @@
 import gql from "graphql-tag";
-
 import { TypedQuery } from "../../core/queries";
 import {
   ProductDetails,
@@ -36,20 +35,20 @@ export const basicProductFragment = gql`
 
 export const productNameTranslationFragment = gql`
   fragment ProductNameTranslationFields on Product {
-    translation(languageCode:$locale){
+    translation(languageCode: $locale) {
       name
       descriptionJson
       seoDescription
       seoTitle
-    }  
+    }
   }
 `;
 
 export const productVariantTranslationFragment = gql`
   fragment ProductVariantTranslationFields on ProductVariant {
-    translation(languageCode:$locale){
+    translation(languageCode: $locale) {
       name
-    }  
+    }
   }
 `;
 
@@ -83,12 +82,16 @@ export const selectedAttributeFragment = gql`
     attribute {
       id
       name
-      translation(languageCode:$locale){name}
+      translation(languageCode: $locale) {
+        name
+      }
     }
     values {
       id
       name
-      translation(languageCode:$locale){name}
+      translation(languageCode: $locale) {
+        name
+      }
     }
   }
 `;
@@ -99,8 +102,8 @@ export const productVariantFragment = gql`
     id
     sku
     name
-    stockQuantity
     isAvailable
+    quantityAvailable(countryCode: $countryCode)
     images {
       id
       url
@@ -119,13 +122,17 @@ export const productVariantFragment = gql`
       attribute {
         id
         name
-        translation(languageCode:$locale){name}
+        translation(languageCode: $locale) {
+          name
+        }
       }
       values {
         id
         name
         value: name
-        translation(languageCode:$locale){name}
+        translation(languageCode: $locale) {
+          name
+        }
       }
     }
   }
@@ -140,8 +147,9 @@ export const productDetailsQuery = gql`
   ${productPricingFragment}
   query ProductDetails(
     $id: ID!
-    $locale:LanguageCodeEnum!
-    ) {
+    $locale: LanguageCodeEnum!
+    $countryCode: CountryCode
+  ) {
     product(id: $id) {
       ...BasicProductFields
       ...ProductPricingField
@@ -150,7 +158,9 @@ export const productDetailsQuery = gql`
       category {
         id
         name
-        translation(languageCode:$locale){name}
+        translation(languageCode: $locale) {
+          name
+        }
         products(first: 3) {
           edges {
             node {
@@ -188,14 +198,14 @@ export const productVariantsQuery = gql`
   ${productVariantTranslationFragment}
   query VariantList(
     $ids: [ID!]
-    $locale:LanguageCodeEnum!
+    $locale: LanguageCodeEnum!
+    $countryCode: CountryCode
   ) {
     productVariants(ids: $ids, first: 100) {
       edges {
         node {
           ...ProductVariantFields
           ...ProductVariantTranslationFields
-          stockQuantity
           product {
             ...BasicProductFields
             ...ProductNameTranslationFields
