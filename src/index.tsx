@@ -159,9 +159,8 @@ const startApp = async () => {
       >
         <ServiceWorkerProvider timeout={serviceWorkerTimeout}>
           <LocaleProvider>
-
-          <GlobalStyle />
-          <Root />
+            <GlobalStyle />
+            <Root />
           </LocaleProvider>
         </ServiceWorkerProvider>
       </AlertProvider>

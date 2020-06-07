@@ -1,9 +1,9 @@
 export interface ISelectOption {
   label: string;
   value: string;
-  translation: ISelectOptionTranslation;
+  translation: ISelectOptionTranslation | null;
 }
 
-export interface ISelectOptionTranslation{
+export interface ISelectOptionTranslation {
   name: string;
 }

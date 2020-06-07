@@ -12,7 +12,7 @@ import {
 import { SelectSidebar } from "../SelectSidebar";
 import * as S from "./styles";
 
-import { useIntl } from "react-intl"
+import { useIntl } from "react-intl";
 
 export const ProductVariantAttributeSelect: React.FC<{
   selectSidebar: boolean;
@@ -47,11 +47,11 @@ export const ProductVariantAttributeSelect: React.FC<{
       disabled: false,
       id: productVariantsAttributesSelectedValues[productVariantsAttributeId]!
         .id,
-      label: productVariantsAttributesSelectedValues[
-        productVariantsAttributeId
-      ]!.translation?.name || productVariantsAttributesSelectedValues[
-        productVariantsAttributeId
-      ]!.name!,
+      label:
+        productVariantsAttributesSelectedValues[productVariantsAttributeId]!
+          .translation?.name ||
+        productVariantsAttributesSelectedValues[productVariantsAttributeId]!
+          .name!,
       value: productVariantsAttributesSelectedValues[
         productVariantsAttributeId
       ]!.value!,
@@ -75,9 +75,10 @@ export const ProductVariantAttributeSelect: React.FC<{
       };
     });
 
-  const selectLabel = productVariantsAttribute.attribute.translation?.name
-    || productVariantsAttribute.attribute.name!
-    ||"";
+  const selectLabel =
+    productVariantsAttribute.attribute.translation?.name ||
+    productVariantsAttribute.attribute.name! ||
+    "";
 
   const selectedValuesList = selectedValue ? [selectedValue.value] : [];
 
@@ -125,14 +126,14 @@ export const ProductVariantAttributeSelect: React.FC<{
           options={attributeOptions}
           selectedOptions={selectedValuesList}
           disabledOptions={disabledValuesList}
-          title={
-            intl.formatMessage({
+          title={intl.formatMessage(
+            {
               defaultMessage: "Please select {selectLabel}",
             },
             {
               selectLabel,
-            })
-          }
+            }
+          )}
           show={showSelectSidebar}
           hide={() => setShowSelectSidebar(false)}
           onSelect={handleSelectValueInSidebar}

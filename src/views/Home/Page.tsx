@@ -27,7 +27,6 @@ const Page: React.FC<{
   shop: ProductsList_shop;
   collections: ProductsList_shop_Collections;
 }> = ({ loading, categories, backgroundImage, shop, collections }) => {
-
   // const categoriesExist = () => {
   //   return categories && categories.edges && categories.edges.length > 0;
   // };
@@ -35,7 +34,12 @@ const Page: React.FC<{
     return collections && collections.edges && collections.edges.length > 0;
   };
   const homeCollectionExist = () => {
-    return shop && shop.homepageCollection && shop.homepageCollection.id && shop.homepageCollection.name;
+    return (
+      shop &&
+      shop.homepageCollection &&
+      shop.homepageCollection.id &&
+      shop.homepageCollection.name
+    );
   };
   const intl = useIntl();
 
@@ -45,12 +49,10 @@ const Page: React.FC<{
         {structuredData(shop)}
       </script>
 
-            <span className="home-page__hero__title home-page__hero__title__red">
-              {">>> "}
-                <FormattedMessage
-                    defaultMessage="Free delivery from 6000 DZD of purchases"
-                  />
-            </span>
+      <span className="home-page__hero__title home-page__hero__title__red">
+        {">>> "}
+        <FormattedMessage defaultMessage="Free delivery from 6000 DZD of purchases" />
+      </span>
 
       <div
         className="home-page__hero"
@@ -60,16 +62,19 @@ const Page: React.FC<{
             : null
         }
       >
-         <div className="home-page__hero-text">
+        <div className="home-page__hero-text">
           <div>
             <span className="home-page__hero__title">
-            {loading && !shop ? (
-            <Loader />
-          ) : (
-            homeCollectionExist() && <h1>{
-              shop.homepageCollection.translation?.name || shop.homepageCollection.name}</h1>
-        
-          )}
+              {loading && !shop ? (
+                <Loader />
+              ) : (
+                homeCollectionExist() && (
+                  <h1>
+                    {shop.homepageCollection.translation?.name ||
+                      shop.homepageCollection.name}
+                  </h1>
+                )
+              )}
             </span>
           </div>
         </div>
@@ -79,9 +84,9 @@ const Page: React.FC<{
           ) : (
             homeCollectionExist() && (
               <Link
-              to={generateCollectionUrl(
-                shop.homepageCollection.id,
-                shop.homepageCollection.name
+                to={generateCollectionUrl(
+                  shop.homepageCollection.id,
+                  shop.homepageCollection.name
                 )}
               >
                 <Button>
@@ -95,11 +100,12 @@ const Page: React.FC<{
           )}
         </div>
       </div>
-      <ProductsFeatured 
+      <ProductsFeatured
         title={intl.formatMessage({
           defaultMessage: "Featured",
           description: "ProductsFeatured home page section name",
-       })}/>
+        })}
+      />
       {collectionsExist() && (
         <div className="home-page__categories">
           <div className="container">
@@ -110,32 +116,40 @@ const Page: React.FC<{
               />
             </h3>
             <div className="home-page__categories__list">
-              {collections.edges.map(({ node: collection }) => (
-                (collection.id !== shop.homepageCollection?.id) && collection.backgroundImage?.url &&
-                <div key={collection.id}>
-                  <Link
-                    to={generateCollectionUrl(collection.id, collection.name)}
-                    key={collection.id}
-                  >
-                    <div
-                      className={classNames(
-                        "home-page__categories__list__image",
-                        {
-                          "home-page__categories__list__image--no-photo": !collection.backgroundImage,
-                        }
-                      )}
-                      style={{
-                        backgroundImage: `url(${
-                          collection.backgroundImage
-                            ? collection.backgroundImage.url
-                            : noPhotoImg
-                        })`,
-                      }}
-                    />
-                    <h3>{collection.translation?.name || collection.name}</h3>
-                  </Link>
-                </div>
-              ))}
+              {collections.edges.map(
+                ({ node: collection }) =>
+                  collection.id !== shop.homepageCollection?.id &&
+                  collection.backgroundImage?.url && (
+                    <div key={collection.id}>
+                      <Link
+                        to={generateCollectionUrl(
+                          collection.id,
+                          collection.name
+                        )}
+                        key={collection.id}
+                      >
+                        <div
+                          className={classNames(
+                            "home-page__categories__list__image",
+                            {
+                              "home-page__categories__list__image--no-photo": !collection.backgroundImage,
+                            }
+                          )}
+                          style={{
+                            backgroundImage: `url(${
+                              collection.backgroundImage
+                                ? collection.backgroundImage.url
+                                : noPhotoImg
+                            })`,
+                          }}
+                        />
+                        <h3>
+                          {collection.translation?.name || collection.name}
+                        </h3>
+                      </Link>
+                    </div>
+                  )
+              )}
             </div>
           </div>
         </div>
