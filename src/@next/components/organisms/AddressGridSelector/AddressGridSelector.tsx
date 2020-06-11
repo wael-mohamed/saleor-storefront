@@ -42,7 +42,7 @@ const AddressGridSelector: React.FC<IProps> = ({
     <>
       <Formik
         initialValues={{
-          addressTileOption: selectedAddressId,
+          addressTileOption: addresses[0]?.id || selectedAddressId,
         }}
         enableReinitialize={true}
         onSubmit={(values, { setSubmitting }) => {
@@ -99,10 +99,9 @@ const AddressGridSelector: React.FC<IProps> = ({
             setDisplayNewModal(false);
           }}
           submitBtnText={"Add"}
-          title=
-          {intl.formatMessage({
+          title={intl.formatMessage({
             defaultMessage: "Add new address",
-         })}
+          })}
           countriesOptions={countriesOptions}
           formId={newAddressFormId}
           userId={userId}
