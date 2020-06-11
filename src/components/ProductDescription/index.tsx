@@ -16,8 +16,10 @@ import { TaxedMoney } from "../../@next/components/containers";
 import AddToCart from "./AddToCart";
 import { QuantityTextField } from "./QuantityTextField";
 
+import { injectIntl, WrappedComponentProps } from "react-intl";
+
 const LOW_STOCK_QUANTITY = 5;
-interface ProductDescriptionProps {
+interface ProductDescriptionProps extends WrappedComponentProps {
   productId: string;
   productVariants: ProductDetails_product_variants[];
   name: string;
@@ -79,7 +81,7 @@ class ProductDescription extends React.Component<
     const priceUndiscounted = this.props.pricing.priceRangeUndiscounted.start;
     const price = this.props.pricing.priceRange.start;
     const getProductPrice = () => {
-      if (!isEqual(price, priceUndiscounted))  {
+      if (!isEqual(price, priceUndiscounted)) {
         return (
           <>
             <span className="product-list-item__undiscounted_price">
@@ -94,9 +96,9 @@ class ProductDescription extends React.Component<
     if (isEqual(min, max)) {
       return (
         <>
-        {getProductPrice()}
-        <TaxedMoney taxedMoney={min} />
-      </>
+          {getProductPrice()}
+          <TaxedMoney taxedMoney={min} />
+        </>
       );
     } else {
       return (
@@ -160,7 +162,7 @@ class ProductDescription extends React.Component<
   );
 
   render() {
-    const { name } = this.props;
+    const { name, intl } = this.props;
     const { variant, variantStock, quantity } = this.state;
 
     const availableQuantity = this.getAvailableQuantity();
@@ -176,12 +178,20 @@ class ProductDescription extends React.Component<
       <div className="product-description">
         <h3>{name}</h3>
         {isOutOfStock ? (
-          this.renderErrorMessage("Out of stock")
+          this.renderErrorMessage(
+            intl.formatMessage({ defaultMessage: "Out of stock" })
+          )
         ) : (
           <h4>{this.getProductPrice()}</h4>
         )}
-        {isLowStock && this.renderErrorMessage("Low stock")}
-        {isNoItemsAvailable && this.renderErrorMessage("No items available")}
+        {isLowStock &&
+          this.renderErrorMessage(
+            intl.formatMessage({ defaultMessage: "Low stock" })
+          )}
+        {isNoItemsAvailable &&
+          this.renderErrorMessage(
+            intl.formatMessage({ defaultMessage: "No items available" })
+          )}
         <div className="product-description__variant-picker">
           <ProductVariantPicker
             productVariants={this.props.productVariants}
@@ -207,4 +217,4 @@ class ProductDescription extends React.Component<
   }
 }
 
-export default ProductDescription;
+export default injectIntl(ProductDescription);

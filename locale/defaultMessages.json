@@ -42,8 +42,17 @@
   "src_dot_@next_dot_components_dot_molecules_dot_AccountMenuMobile_dot_AccountMenuMobile_dot_2132071990": {
     "string": "Go to"
   },
+  "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_2085637905": {
+    "string": "Address Book"
+  },
   "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_2178551369": {
     "string": "MY ACCOUNT"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_3198092477": {
+    "string": "Account"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_3990160018": {
+    "string": "Order History"
   },
   "src_dot_@next_dot_components_dot_molecules_dot_AccountTabTiles_dot_AccountTile_dot_3253048083": {
     "context": "personal details account title",
@@ -127,6 +136,36 @@
     "context": "Products Ordered order table th",
     "string": "Products Ordered"
   },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_Fulfilled": {
+    "string": "Fulfilled"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_canceled": {
+    "string": "Canceled"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_draft": {
+    "string": "Draft"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_partiallyFulfilled": {
+    "string": "Partially fulfilled"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_unfulfilled": {
+    "string": "Unfulfilled"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_fullyCharged": {
+    "string": "Fully charged"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_fullyRefunded": {
+    "string": "Fully refunded"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_notCharged": {
+    "string": "Not charged"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_partiallyCharged": {
+    "string": "Partially charged"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_partiallyRefunded": {
+    "string": "Partially refunded"
+  },
   "src_dot_@next_dot_components_dot_molecules_dot_ProductDescription_dot_ProductDescription_dot_2623707255": {
     "string": "DESCRIPTION"
   },
@@ -194,8 +233,20 @@
   "src_dot_@next_dot_components_dot_organisms_dot_CartRow_dot_CartRow_dot_912666212": {
     "string": "SKU:"
   },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_1325966144": {
+    "string": "Shipping"
+  },
   "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_2088494495": {
     "string": "Cart Summary"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_3639473373": {
+    "string": "Promo Code"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_781550514": {
+    "string": "Subtotal"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_878013594": {
+    "string": "Total"
   },
   "src_dot_@next_dot_components_dot_organisms_dot_CheckoutPayment_dot_CheckoutPayment_dot_2834045642": {
     "string": "PAYMENT METHOD"
@@ -239,6 +290,9 @@
   "src_dot_@next_dot_components_dot_organisms_dot_FilterSidebar_dot_FilterSidebar_dot_406136781": {
     "context": "FILTERS title",
     "string": "FILTERS"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_PaymentGatewaysList_dot_PaymentGatewaysList_dot_3497168658": {
+    "string": "Cash On Delivery"
   },
   "src_dot_@next_dot_components_dot_organisms_dot_ProductList_dot_ProductList_dot_2783099424": {
     "string": "More +"
@@ -296,6 +350,18 @@
   },
   "src_dot_@next_dot_pages_dot_CartPage_dot_CartPage_dot_36913639": {
     "string": "CONTINUE SHOPPING"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_goToPayment": {
+    "string": "Continue to Payment"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_goToReview": {
+    "string": "Continue to Review"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_goToShipping": {
+    "string": "Continue to Shipping"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_placeOrder": {
+    "string": "Place order"
   },
   "src_dot_@next_dot_pages_dot_CheckoutPage_dot_subpages_dot_CheckoutReviewSubpage_dot_3497168658": {
     "string": "Cash On Delivery"
@@ -526,6 +592,15 @@
   },
   "src_dot_components_dot_ProductDescription_dot_QuantityTextField_dot_2796503714": {
     "string": "Quantity"
+  },
+  "src_dot_components_dot_ProductDescription_dot_index_dot_234464668": {
+    "string": "No items available"
+  },
+  "src_dot_components_dot_ProductDescription_dot_index_dot_2541567981": {
+    "string": "Low stock"
+  },
+  "src_dot_components_dot_ProductDescription_dot_index_dot_4249794717": {
+    "string": "Out of stock"
   },
   "src_dot_intl_dot_buttonMessages_dot_accept": {
     "context": "button",

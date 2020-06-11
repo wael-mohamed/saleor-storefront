@@ -884,5 +884,83 @@
   },
   "src_dot_views_dot_Home_dot_Page_dot_3789377331": {
     "string": "Livraison gratuite à partir de 6000 DZD d'achats"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_PaymentGatewaysList_dot_PaymentGatewaysList_dot_3497168658": {
+    "string": "Paiement à la livraison"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_goToPayment": {
+    "string": "Continuer vers le paiement"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_goToReview": {
+    "string": "Continuer vers la révision"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_goToShipping": {
+    "string": "Continuer vers la livraison"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_ActionNames_dot_checkoutActionMessages_dot_placeOrder": {
+    "string": "Valider la commande"
+  },
+  "src_dot_@next_dot_pages_dot_CheckoutPage_dot_subpages_dot_CheckoutReviewSubpage_dot_3497168658": {
+    "string": "Paiement à la livraison"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_1325966144": {
+    "string": "Livraison"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_3639473373": {
+    "string": "Code promo"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_781550514": {
+    "string": "Sous-total"
+  },
+  "src_dot_@next_dot_components_dot_organisms_dot_CartSummary_dot_CartSummary_dot_878013594": {
+    "string": "Total"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_Fulfilled": {
+    "string": "Traitée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_canceled": {
+    "string": "Annulée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_draft": {
+    "string": "Brouillon"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_partiallyFulfilled": {
+    "string": "Partiellement traitée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_orderStatusMessages_dot_unfulfilled": {
+    "string": "Non traitée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_fullyCharged": {
+    "string": "Complètement payée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_fullyRefunded": {
+    "string": "Complètement remboursé"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_notCharged": {
+    "string": "Non payée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_partiallyCharged": {
+    "string": "Partiellement payée"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_OrderTabel_dot_StatusMessages_dot_paymentChargeStatusMessages_dot_partiallyRefunded": {
+    "string": "Partiellement remboursé"
+  },
+  "src_dot_components_dot_ProductDescription_dot_index_dot_234464668": {
+    "string": "Aucun article disponible"
+  },
+  "src_dot_components_dot_ProductDescription_dot_index_dot_2541567981": {
+    "string": "Stock faible"
+  },
+  "src_dot_components_dot_ProductDescription_dot_index_dot_4249794717": {
+    "string": "En rupture de stock"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_3198092477": {
+    "string": "Mon compte"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_3990160018": {
+    "string": "Historique des commandes"
+  },
+  "src_dot_@next_dot_components_dot_molecules_dot_AccountMenu_dot_AccountMenu_dot_2085637905": {
+    "string": "Carnet d'adresses"
   }
 }

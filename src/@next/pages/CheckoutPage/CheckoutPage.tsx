@@ -22,6 +22,8 @@ import {
   ICheckoutShippingSubpageHandles,
 } from "./subpages";
 import { IProps } from "./types";
+import { checkoutActionMessages } from "./ActionNames";
+import { useIntl } from "react-intl";
 
 const prepareCartSummary = (
   totalPrice?: ITaxedMoney | null,
@@ -92,6 +94,21 @@ const getButton = (text: string, onClick: () => void) => {
 };
 
 const CheckoutPage: React.FC<IProps> = ({}: IProps) => {
+  const intl = useIntl();
+  const getActionName = (name?: string) => {
+    switch (name) {
+      case "Continue to Shipping":
+        return intl.formatMessage(checkoutActionMessages.goToShipping);
+      case "Continue to Payment":
+        return intl.formatMessage(checkoutActionMessages.goToPayment);
+      case "Continue to Review":
+        return intl.formatMessage(checkoutActionMessages.goToReview);
+      case "Place order":
+        return intl.formatMessage(checkoutActionMessages.placeOrder);
+      default:
+        return "";
+    }
+  };
   const { pathname } = useLocation();
   const {
     loaded: cartLoaded,
@@ -243,7 +260,7 @@ const CheckoutPage: React.FC<IProps> = ({}: IProps) => {
       )}
       checkout={checkoutView}
       button={getButton(
-        activeStep.nextActionName.toUpperCase(),
+        getActionName(activeStep.nextActionName).toUpperCase(),
         handleNextStepClick
       )}
     />

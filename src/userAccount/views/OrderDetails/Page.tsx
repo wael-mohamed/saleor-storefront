@@ -13,6 +13,10 @@ import { ILine } from "../../../components/CartTable/ProductRow";
 import { orderHistoryUrl } from "../../../app/routes";
 
 import { useIntl } from "react-intl";
+import {
+  orderStatusMessages,
+  paymentChargeStatusMessages,
+} from "@temp/@next/components/molecules/OrderTabel/StatusMessages";
 
 const extractOrderLines = (lines: OrderDetail_lines[]): ILine[] => {
   return lines
@@ -41,6 +45,40 @@ const Page: React.FC<{
   order: OrderDetail;
 }> = ({ guest, order }) => {
   const intl = useIntl();
+  const getOrderStatusMessage = (status?: string) => {
+    switch (status) {
+      case "Draft":
+        return intl.formatMessage(orderStatusMessages.draft);
+      case "Fulfilled":
+        return intl.formatMessage(orderStatusMessages.Fulfilled);
+      case "Canceled":
+        return intl.formatMessage(orderStatusMessages.canceled);
+      case "Partially fulfilled":
+        return intl.formatMessage(orderStatusMessages.partiallyFulfilled);
+      case "Unfulfilled":
+        return intl.formatMessage(orderStatusMessages.unfulfilled);
+      default:
+        return "";
+    }
+  };
+  const getPaymentChargeStatusMessage = (status?: string) => {
+    switch (status) {
+      case "Not charged":
+        return intl.formatMessage(paymentChargeStatusMessages.notCharged);
+      case "Partially charged":
+        return intl.formatMessage(paymentChargeStatusMessages.partiallyCharged);
+      case "Fully charged":
+        return intl.formatMessage(paymentChargeStatusMessages.fullyCharged);
+      case "Partially refunded":
+        return intl.formatMessage(
+          paymentChargeStatusMessages.partiallyRefunded
+        );
+      case "Fully refunded":
+        return intl.formatMessage(paymentChargeStatusMessages.fullyRefunded);
+      default:
+        return "";
+    }
+  };
   return order ? (
     <>
       {!guest && (
@@ -63,7 +101,8 @@ const Page: React.FC<{
         )}
       </h3>
       <p className="order-details__status">
-        {order.paymentStatusDisplay} / {order.statusDisplay}
+        {getPaymentChargeStatusMessage(order.paymentStatusDisplay)} /{" "}
+        {getOrderStatusMessage(order.statusDisplay)}
       </p>
       <CartTable
         lines={extractOrderLines(order.lines)}

@@ -11,6 +11,7 @@ import {
 } from "..";
 import * as S from "./styles";
 import { IProps } from "./types";
+import { useIntl } from "react-intl";
 
 /**
  * Payment Gateways list
@@ -26,6 +27,7 @@ const PaymentGatewaysList: React.FC<IProps> = ({
   errors,
   onError,
 }: IProps) => {
+  const intl = useIntl();
   return (
     <S.Wrapper>
       {paymentGateways.map(({ id, name, config }, index) => {
@@ -95,34 +97,38 @@ const PaymentGatewaysList: React.FC<IProps> = ({
                 )}
               </div>
             );
-            case PROVIDERS.CASHONDELIVERY.label:
-              return (
-                <div key={index}>
-                  <S.Tile checked={checked}>
-                    <Radio
-                      data-cy="checkoutPaymentGatewayDummyInput"
-                      name="payment-method"
-                      value="dummy"
-                      checked={checked}
-                      onChange={() =>
-                        selectPaymentGateway && selectPaymentGateway(id)
-                      }
-                      customLabel={true}
-                    >
-                      <span data-cy="checkoutPaymentGatewayDummyName">
-                        {name}
-                      </span>
-                    </Radio>
-                  </S.Tile>
-                  {checked && (
-                    <CashOnDeliveryPaymentGateway
-                      formRef={formRef}
-                      formId={formId}
-                      processPayment={(token: string) => processPayment(id, token)}
-                    />
-                  )}
-                </div>
-              );
+          case PROVIDERS.CASHONDELIVERY.label:
+            return (
+              <div key={index}>
+                <S.Tile checked={checked}>
+                  <Radio
+                    data-cy="checkoutPaymentGatewayDummyInput"
+                    name="payment-method"
+                    value="dummy"
+                    checked={checked}
+                    onChange={() =>
+                      selectPaymentGateway && selectPaymentGateway(id)
+                    }
+                    customLabel={true}
+                  >
+                    <span data-cy="checkoutPaymentGatewayDummyName">
+                      {intl.formatMessage({
+                        defaultMessage: "Cash On Delivery",
+                      })}
+                    </span>
+                  </Radio>
+                </S.Tile>
+                {checked && (
+                  <CashOnDeliveryPaymentGateway
+                    formRef={formRef}
+                    formId={formId}
+                    processPayment={(token: string) =>
+                      processPayment(id, token)
+                    }
+                  />
+                )}
+              </div>
+            );
           case PROVIDERS.STRIPE.label:
             return (
               <div key={index}>

@@ -10,42 +10,43 @@ import { generateProductUrl } from "../../../../core/utils";
 import * as S from "./styles";
 import { IProps } from "./types";
 
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
+import { orderStatusMessages } from "./StatusMessages";
 
 const header = (matches: boolean) => (
   <S.HeaderRow>
     <S.IndexNumber>
       <FormattedMessage
-          defaultMessage="Index Number" 
-          description= "index number th"
+        defaultMessage="Index Number"
+        description="index number th"
       />
     </S.IndexNumber>
     {matches && (
       <>
         <S.ProductsOrdered>
           <FormattedMessage
-            defaultMessage="Products Ordered" 
-            description= "Products Ordered order table th"
+            defaultMessage="Products Ordered"
+            description="Products Ordered order table th"
           />
         </S.ProductsOrdered>
         <S.DateOfOrder>
           <FormattedMessage
-            defaultMessage="Date of Order" 
-            description= "Date of Order order table th"
+            defaultMessage="Date of Order"
+            description="Date of Order order table th"
           />
         </S.DateOfOrder>
         <S.Value>
           <FormattedMessage
-            defaultMessage="Value" 
-            description= "Value order table th"
+            defaultMessage="Value"
+            description="Value order table th"
           />
         </S.Value>
       </>
     )}
     <S.Status>
       <FormattedMessage
-        defaultMessage="Status" 
-        description= "Status order table th"
+        defaultMessage="Status"
+        description="Status order table th"
       />
     </S.Status>
   </S.HeaderRow>
@@ -53,6 +54,23 @@ const header = (matches: boolean) => (
 
 export const OrderTabel: React.FC<IProps> = ({ orders, history }: IProps) => {
   const theme = React.useContext(ThemeContext);
+  const intl = useIntl();
+  const getOrderStatusMessage = (status?: string) => {
+    switch (status) {
+      case "Draft":
+        return intl.formatMessage(orderStatusMessages.draft);
+      case "Fulfilled":
+        return intl.formatMessage(orderStatusMessages.Fulfilled);
+      case "Canceled":
+        return intl.formatMessage(orderStatusMessages.canceled);
+      case "Partially fulfilled":
+        return intl.formatMessage(orderStatusMessages.partiallyFulfilled);
+      case "Unfulfilled":
+        return intl.formatMessage(orderStatusMessages.unfulfilled);
+      default:
+        return "";
+    }
+  };
   return (
     <S.Wrapper>
       <Media
@@ -110,7 +128,9 @@ export const OrderTabel: React.FC<IProps> = ({ orders, history }: IProps) => {
                       ) : (
                         ""
                       )}
-                      <S.Status>{order.node.statusDisplay}</S.Status>
+                      <S.Status>
+                        {getOrderStatusMessage(order.node.statusDisplay)}
+                      </S.Status>
                     </S.Row>
                   );
                 })}
