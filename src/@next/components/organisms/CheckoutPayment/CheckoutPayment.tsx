@@ -87,7 +87,8 @@ const CheckoutPayment: React.FC<IProps> = ({
       id: address?.id || "",
       onSelect: () => null,
     })) || [];
-  setBillingAsShippingAddress(billingAsShippingAddress);
+  if (!selectedUserAddressId)
+    setBillingAsShippingAddress(billingAsShippingAddress);
   return (
     <S.Wrapper>
       <section>
