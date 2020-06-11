@@ -20,16 +20,15 @@ const CheckoutShipping: React.FC<IProps> = ({
   formId,
   formRef,
 }: IProps) => {
+  const initialValue = shippingMethods[0]?.id;
   return (
     <section>
       <S.Title data-cy="checkoutPageSubtitle">
-        <FormattedMessage
-          defaultMessage={"SHIPPING METHOD"}
-        />
+        <FormattedMessage defaultMessage={"SHIPPING METHOD"} />
       </S.Title>
       <Formik
         initialValues={{
-          shippingMethod: selectedShippingMethodId,
+          shippingMethod: initialValue || selectedShippingMethodId,
         }}
         enableReinitialize={true}
         onSubmit={(values, { setSubmitting }) => {
