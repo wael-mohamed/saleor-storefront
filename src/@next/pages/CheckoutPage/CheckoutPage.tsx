@@ -22,7 +22,9 @@ import {
   ICheckoutShippingSubpageHandles,
 } from "./subpages";
 import { IProps } from "./types";
+
 import { checkoutActionMessages } from "./ActionNames";
+
 import { useIntl } from "react-intl";
 
 const prepareCartSummary = (

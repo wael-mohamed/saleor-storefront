@@ -60,7 +60,7 @@ export const OrderTabel: React.FC<IProps> = ({ orders, history }: IProps) => {
       case "Draft":
         return intl.formatMessage(orderStatusMessages.draft);
       case "Fulfilled":
-        return intl.formatMessage(orderStatusMessages.Fulfilled);
+        return intl.formatMessage(orderStatusMessages.fulfilled);
       case "Canceled":
         return intl.formatMessage(orderStatusMessages.canceled);
       case "Partially fulfilled":

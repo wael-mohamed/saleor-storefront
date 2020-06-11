@@ -13,6 +13,7 @@ import { ILine } from "../../../components/CartTable/ProductRow";
 import { orderHistoryUrl } from "../../../app/routes";
 
 import { useIntl } from "react-intl";
+
 import {
   orderStatusMessages,
   paymentChargeStatusMessages,
@@ -50,7 +51,7 @@ const Page: React.FC<{
       case "Draft":
         return intl.formatMessage(orderStatusMessages.draft);
       case "Fulfilled":
-        return intl.formatMessage(orderStatusMessages.Fulfilled);
+        return intl.formatMessage(orderStatusMessages.fulfilled);
       case "Canceled":
         return intl.formatMessage(orderStatusMessages.canceled);
       case "Partially fulfilled":

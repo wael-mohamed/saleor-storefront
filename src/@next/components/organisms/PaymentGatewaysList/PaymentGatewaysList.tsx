@@ -11,6 +11,7 @@ import {
 } from "..";
 import * as S from "./styles";
 import { IProps } from "./types";
+
 import { useIntl } from "react-intl";
 
 /**
