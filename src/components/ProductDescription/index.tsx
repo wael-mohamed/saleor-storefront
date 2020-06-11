@@ -184,7 +184,8 @@ class ProductDescription extends React.Component<
         ) : (
           <h4>{this.getProductPrice()}</h4>
         )}
-        {isLowStock &&
+        {false &&
+          isLowStock &&
           this.renderErrorMessage(
             intl.formatMessage({ defaultMessage: "Low stock" })
           )}
