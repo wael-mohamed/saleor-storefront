@@ -38,6 +38,7 @@ interface ProductDescriptionState {
     min: ITaxedMoney;
     max: ITaxedMoney;
   };
+  variantSku: string;
 }
 
 class ProductDescription extends React.Component<
@@ -55,6 +56,7 @@ class ProductDescription extends React.Component<
         max: props.pricing.priceRange.stop,
         min: props.pricing.priceRange.start,
       },
+      variantSku: null,
       variantStock: null,
     };
   }
@@ -117,11 +119,12 @@ class ProductDescription extends React.Component<
       this.setState({
         variant: selectedVariant.id,
         variantPricing: selectedVariant.pricing,
+        variantSku: "#" + selectedVariant.sku,
         variantStock: selectedVariant.quantityAvailable,
       });
       this.props.setVariantId(selectedVariant.id);
     } else {
-      this.setState({ variant: "", variantPricing: null });
+      this.setState({ variant: "", variantPricing: null, variantSku: null });
       this.props.setVariantId("");
     }
   };
@@ -176,6 +179,7 @@ class ProductDescription extends React.Component<
 
     return (
       <div className="product-description">
+        {this.state.variantSku}
         <h3>{name}</h3>
         {isOutOfStock ? (
           this.renderErrorMessage(
