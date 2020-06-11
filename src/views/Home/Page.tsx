@@ -51,7 +51,11 @@ const Page: React.FC<{
 
       <span className="home-page__hero__title home-page__hero__title__red">
         {">>> "}
-        <FormattedMessage defaultMessage="Free delivery from 6000 DZD of purchases" />
+        <FormattedMessage defaultMessage="Shipping cost: 500DZD" />
+      </span>
+      <br />
+      <span className="home-page__hero__title home-page__hero__title">
+        <FormattedMessage defaultMessage="Contact us: 0778334977" />
       </span>
 
       <div
