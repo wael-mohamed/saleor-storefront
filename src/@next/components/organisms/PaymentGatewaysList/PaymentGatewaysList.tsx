@@ -29,8 +29,9 @@ const PaymentGatewaysList: React.FC<IProps> = ({
   onError,
 }: IProps) => {
   const intl = useIntl();
-  if (selectedPaymentGateway == null)
+  if (selectedPaymentGateway == null) {
     selectPaymentGateway(paymentGateways[0].id);
+  }
   return (
     <S.Wrapper>
       {paymentGateways.map(({ id, name, config }, index) => {
