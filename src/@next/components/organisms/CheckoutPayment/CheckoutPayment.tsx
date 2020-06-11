@@ -23,7 +23,7 @@ const CheckoutPayment: React.FC<IProps> = ({
   promoCodeErrors,
   selectedUserAddressId,
   userAddresses,
-  billingAsShippingAddress = false,
+  billingAsShippingAddress = true,
   checkoutBillingAddress,
   countries,
   billingFormRef,
@@ -87,14 +87,12 @@ const CheckoutPayment: React.FC<IProps> = ({
       id: address?.id || "",
       onSelect: () => null,
     })) || [];
-
+  setBillingAsShippingAddress(billingAsShippingAddress);
   return (
     <S.Wrapper>
       <section>
         <S.Title data-cy="checkoutPageSubtitle">
-          <FormattedMessage
-              defaultMessage={"BILLING ADDRESS"}
-          />  
+          <FormattedMessage defaultMessage={"BILLING ADDRESS"} />
         </S.Title>
         {billingAsShippingPossible && (
           <Checkbox
@@ -105,9 +103,7 @@ const CheckoutPayment: React.FC<IProps> = ({
               setBillingAsShippingAddress(!billingAsShippingAddress)
             }
           >
-            <FormattedMessage
-              defaultMessage={"Same as shipping address"}
-            />
+            <FormattedMessage defaultMessage={"Same as shipping address"} />
           </Checkbox>
         )}
         {!billingAsShippingAddress && (
@@ -119,7 +115,9 @@ const CheckoutPayment: React.FC<IProps> = ({
                 formRef={billingFormRef}
                 addresses={adresses}
                 selectedAddressId={selectedUserAddressId}
-                countriesOptions={countries?.filter(filterNotEmptyArrayItems).filter(country => country.code==="DZ")}
+                countriesOptions={countries
+                  ?.filter(filterNotEmptyArrayItems)
+                  .filter(country => country.code === "DZ")}
                 userId={userId}
                 errors={billingErrors}
                 onSelect={(address, id) =>
@@ -146,9 +144,7 @@ const CheckoutPayment: React.FC<IProps> = ({
       <S.Divider />
       <section>
         <S.Title data-cy="checkoutPageSubtitle">
-          <FormattedMessage
-            defaultMessage={"PAYMENT METHOD"}
-          />  
+          <FormattedMessage defaultMessage={"PAYMENT METHOD"} />
         </S.Title>
         <Checkbox
           data-cy="checkoutPaymentPromoCodeCheckbox"
@@ -158,7 +154,7 @@ const CheckoutPayment: React.FC<IProps> = ({
         >
           <FormattedMessage
             defaultMessage={"Do you have a gift card voucher or discount code?"}
-          /> 
+          />
         </Checkbox>
         {showPromoCodeForm && (
           <S.DiscountField>
