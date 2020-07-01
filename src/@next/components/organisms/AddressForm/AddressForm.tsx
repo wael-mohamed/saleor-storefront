@@ -46,7 +46,6 @@ export const AddressForm: React.FC<IProps> = ({
         if (handleSubmit) {
           handleSubmit({ ...values, city: values.city?.label });
         }
-        console.log(values);
         setSubmitting(false);
       }}
     >

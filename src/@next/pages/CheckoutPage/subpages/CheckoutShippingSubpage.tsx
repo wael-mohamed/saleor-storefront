@@ -12,6 +12,7 @@ import { useCheckout } from "@sdk/react";
 import { CHECKOUT_STEPS } from "@temp/core/config";
 import { IFormError } from "@types";
 
+import { getShippingMethod } from "./Cities";
 export interface ICheckoutShippingSubpageHandles {
   submitShipping: () => void;
 }
@@ -35,9 +36,11 @@ const CheckoutShippingSubpageWithRef: RefForwardingComponent<
     availableShippingMethods,
     setShippingMethod,
   } = useCheckout();
-
+  const possibleShippingMethod = getShippingMethod(
+    checkout?.shippingAddress?.city
+  );
   const shippingMethods = availableShippingMethods
-    ? availableShippingMethods
+    ? availableShippingMethods.filter(sm => sm.id === possibleShippingMethod)
     : [];
 
   useImperativeHandle(ref, () => ({

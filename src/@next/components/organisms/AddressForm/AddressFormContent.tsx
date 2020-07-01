@@ -7,6 +7,7 @@ import { PropsWithFormik } from "./types";
 
 import { commonMessages } from "@saleor/intl";
 import { useIntl } from "react-intl";
+import { getCities } from "src/@next/pages/CheckoutPage/subpages/Cities";
 
 export const AddressFormContent: React.FC<PropsWithFormik> = ({
   formRef,
@@ -37,10 +38,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
         : [{ message }];
     });
   }
-  const citiesOptions = [
-    { label: "Mostaganem", value: "27" },
-    { label: "Oran", value: "31" },
-  ];
+  const citiesOptions = getCities();
   return (
     <S.AddressForm id={formId} ref={formRef} onSubmit={handleSubmit}>
       <S.Wrapper>
