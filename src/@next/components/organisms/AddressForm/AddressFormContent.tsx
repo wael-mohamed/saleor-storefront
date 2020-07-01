@@ -5,7 +5,7 @@ import { InputSelect, TextField } from "@components/molecules";
 import * as S from "./styles";
 import { PropsWithFormik } from "./types";
 
-import { commonMessages } from "@saleor/intl"
+import { commonMessages } from "@saleor/intl";
 import { useIntl } from "react-intl";
 
 export const AddressFormContent: React.FC<PropsWithFormik> = ({
@@ -37,7 +37,10 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
         : [{ message }];
     });
   }
-
+  const citiesOptions = [
+    { label: "Mostaganem", value: "27" },
+    { label: "Oran", value: "31" },
+  ];
   return (
     <S.AddressForm id={formId} ref={formRef} onSubmit={handleSubmit}>
       <S.Wrapper>
@@ -91,13 +94,10 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
           <TextField
             data-cy="addressFormStreetAddress1"
             name="streetAddress1"
-            label=
-            {
-              intl.formatMessage({
-                defaultMessage: "Address line 1",
-                description: "Address line 1 label",
-              })
-            }
+            label={intl.formatMessage({
+              defaultMessage: "Address line 1",
+              description: "Address line 1 label",
+            })}
             value={values!.streetAddress1}
             autoComplete="address-line1"
             errors={fieldErrors!.streetAddress1}
@@ -108,13 +108,10 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
           <TextField
             data-cy="addressFormStreetAddress2"
             name="streetAddress2"
-            label=
-            {
-              intl.formatMessage({
-                defaultMessage: "Address line 2",
-                description: "Address line 2 label",
-              })
-            }
+            label={intl.formatMessage({
+              defaultMessage: "Address line 2",
+              description: "Address line 2 label",
+            })}
             value={values!.streetAddress2}
             autoComplete="address-line2"
             errors={fieldErrors!.streetAddress2}
@@ -122,7 +119,24 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
           />
         </S.RowWithOneCell>
         <S.RowWithTwoCells>
-          <TextField
+          <InputSelect
+            inputProps={{
+              "data-cy": "addressFormCity",
+            }}
+            label={intl.formatMessage(commonMessages.city)}
+            name="city"
+            options={citiesOptions}
+            value={
+              values!.city &&
+              citiesOptions &&
+              citiesOptions!.find(option => option.label === values!.city!)
+            }
+            errors={fieldErrors!.city}
+            onChange={(label: any, name: any) => setFieldValue(name, label)}
+            optionLabelKey="label"
+            optionValueKey="value"
+          />
+          {/* <TextField
             data-cy="addressFormCity"
             name="city"
             label={intl.formatMessage(commonMessages.city)}
@@ -130,17 +144,14 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             autoComplete="address-level1"
             errors={fieldErrors!.city}
             {...basicInputProps()}
-          />
+          /> */}
           <TextField
             data-cy="addressFormPostalCode"
             name="postalCode"
-            label=
-            {
-              intl.formatMessage({
-                defaultMessage: "ZIP/Postal Code",
-                description: "ZIP/Postal Code label",
-              })
-            }
+            label={intl.formatMessage({
+              defaultMessage: "ZIP/Postal Code",
+              description: "ZIP/Postal Code label",
+            })}
             value={values!.postalCode}
             autoComplete="postal-code"
             errors={fieldErrors!.postalCode}
@@ -155,7 +166,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             defaultValue={defaultValue}
             label={intl.formatMessage(commonMessages.country)}
             name="country"
-            options={countriesOptions}
+            options={countriesOptions || [{ country: "Algeria", code: "DZ" }]}
             value={
               values!.country &&
               countriesOptions &&
@@ -171,13 +182,10 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
           <TextField
             data-cy="addressFormCountryArea"
             name="countryArea"
-            label=
-            {
-              intl.formatMessage({
-                defaultMessage: "State/province",
-                description: "State/province label",
-              })
-            }
+            label={intl.formatMessage({
+              defaultMessage: "State/province",
+              description: "State/province label",
+            })}
             value={values!.countryArea}
             autoComplete="address-level2"
             errors={fieldErrors!.countryArea}

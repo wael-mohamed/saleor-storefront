@@ -11,7 +11,7 @@ export interface IProps {
   menuIsOpen?: boolean;
   customStyles?: any;
   optionValueKey?: string;
-  onChange: (value: any, name?: any) => void;
+  onChange?: (value: any, name?: any) => void;
   clearable?: boolean;
   clearValue?: () => void;
   customComponents?: {

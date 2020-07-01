@@ -2,7 +2,7 @@ import { Formik } from "formik";
 import { pick } from "lodash";
 import React from "react";
 
-import { IAddress } from "@types";
+import { IAddressWithCity } from "@types";
 import { AddressFormContent } from "./AddressFormContent";
 import { IProps } from "./types";
 
@@ -28,9 +28,12 @@ export const AddressForm: React.FC<IProps> = ({
   countriesOptions,
   ...props
 }: IProps) => {
-  let addressWithPickedFields: Partial<IAddress> = {};
+  let addressWithPickedFields: Partial<IAddressWithCity> = {};
   if (address) {
-    addressWithPickedFields = pick(address, ADDRESS_FIELDS);
+    addressWithPickedFields = {
+      ...pick(address, ADDRESS_FIELDS),
+      city: { label: pick(address, ADDRESS_FIELDS).city },
+    };
   }
   if (defaultValue) {
     addressWithPickedFields.country = defaultValue;
@@ -41,8 +44,9 @@ export const AddressForm: React.FC<IProps> = ({
       enableReinitialize={true}
       onSubmit={(values, { setSubmitting }) => {
         if (handleSubmit) {
-          handleSubmit(values);
+          handleSubmit({ ...values, city: values.city?.label });
         }
+        console.log(values);
         setSubmitting(false);
       }}
     >
@@ -65,7 +69,7 @@ export const AddressForm: React.FC<IProps> = ({
               handleSubmit,
               setFieldTouched,
               setFieldValue,
-              values,
+              values: { ...values, city: values.city?.label },
             }}
             {...props}
           />

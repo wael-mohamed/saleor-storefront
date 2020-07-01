@@ -74,10 +74,12 @@ const CheckoutAddressSubpageWithRef: RefForwardingComponent<
       return;
     }
 
-    const shippingPhone = address?.phone ;
+    const shippingPhone = address?.phone;
 
     if (!shippingPhone) {
-      setErrors([{ field: "phone", message: "Please provide your phone number." }]);
+      setErrors([
+        { field: "phone", message: "Please provide your phone number." },
+      ]);
       return;
     }
     const shippingEmail = user?.email || email || "";

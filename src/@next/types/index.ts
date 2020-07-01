@@ -1,4 +1,5 @@
 export * from "./IAddress";
+export * from "./IAddressWithCity";
 export * from "./IAddressWithEmail";
 export * from "./IAddressWithAddressType";
 export * from "./IFilterAttributes";
