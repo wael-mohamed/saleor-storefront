@@ -1,5 +1,14 @@
 @import "../../../globalStyles/scss/variables.scss";
 
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius !=0 {
+    border-radius: $radius;
+  }
+}
+
 .home-page {
   &__hero {
     background-color: $blue-overlay;
@@ -40,14 +49,16 @@
       transform: skew(0deg);
       padding: $spacer $spacer * 3;
       margin-bottom: $spacer / 2;
-      
+
       @media (max-width: $small-screen) {
         padding: 0.6rem $spacer;
         width: calc(100% - 4rem);
       }
-      &__red{
+
+      &__red {
         color: $turquoise;
       }
+
       h1 {
         display: inline-block;
         transform: skew(-0deg);
@@ -96,8 +107,7 @@
       }
 
       &__image {
-        width: 100%;
-        height: 30rem;
+        @include square(343px, $radius: 0);
         background-size: cover;
         background-position: center;
         margin-bottom: 1rem;

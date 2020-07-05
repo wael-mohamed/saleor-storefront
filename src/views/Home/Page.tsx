@@ -49,11 +49,11 @@ const Page: React.FC<{
         {structuredData(shop)}
       </script>
 
-      <span className="home-page__hero__title home-page__hero__title__red">
+      {/* <span className="home-page__hero__title home-page__hero__title__red">
         {">>> "}
         <FormattedMessage defaultMessage="Shipping cost: 500DZD" />
       </span>
-      <br />
+      <br /> */}
       <span className="home-page__hero__title home-page__hero__title">
         <FormattedMessage defaultMessage="Contact us: 0778334977" />
       </span>
