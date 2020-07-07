@@ -34,7 +34,7 @@ export const homePageQuery = gql`
         }
       }
     }
-    collections(sortBy: { field: NAME, direction: ASC }, first: 16) {
+    collections(sortBy: { field: NAME, direction: ASC }, first: 30) {
       edges {
         node {
           id

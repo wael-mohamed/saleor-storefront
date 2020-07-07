@@ -55,7 +55,7 @@ const Page: React.FC<{
       </span>
       <br /> */}
       <span className="home-page__hero__title home-page__hero__title">
-        <FormattedMessage defaultMessage="Contact us: 0778334977" />
+        <FormattedMessage defaultMessage="Contact us: 0778334917" />
       </span>
 
       <div
