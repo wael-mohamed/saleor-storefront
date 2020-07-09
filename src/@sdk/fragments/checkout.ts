@@ -1,5 +1,13 @@
 import gql from "graphql-tag";
 
+export const checkoutErrorFragment = gql`
+  fragment CheckoutError on CheckoutError {
+    code
+    field
+    message
+  }
+`;
+
 export const checkoutPriceFragment = gql`
   fragment Price on TaxedMoney {
     gross {
@@ -42,7 +50,9 @@ export const checkoutProductVariantFragment = gql`
     sku
     quantityAvailable
     isAvailable
-    translation(languageCode:$locale){name}
+    translation(languageCode: $locale) {
+      name
+    }
     pricing {
       onSale
       priceUndiscounted {
@@ -56,19 +66,25 @@ export const checkoutProductVariantFragment = gql`
       attribute {
         id
         name
-        translation(languageCode:$locale){name}
+        translation(languageCode: $locale) {
+          name
+        }
       }
       values {
         id
         name
         value: name
-        translation(languageCode:$locale){name}
+        translation(languageCode: $locale) {
+          name
+        }
       }
     }
     product {
       id
       name
-      translation(languageCode:$locale){name}
+      translation(languageCode: $locale) {
+        name
+      }
       thumbnail {
         url
         alt

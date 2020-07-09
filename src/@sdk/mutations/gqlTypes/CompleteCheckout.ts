@@ -1,8 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import {
+  CheckoutErrorCode,
   PaymentChargeStatusEnum,
   OrderStatus,
 } from "./../../gqlTypes/globalTypes";
@@ -12,7 +14,11 @@ import {
 // ====================================================
 
 export interface CompleteCheckout_checkoutComplete_errors {
-  __typename: "Error";
+  __typename: "CheckoutError";
+  /**
+   * The error code.
+   */
+  code: CheckoutErrorCode;
   /**
    * Name of a field that caused the error. A value of `null` indicates that the
    * error isn't associated with a particular field.
