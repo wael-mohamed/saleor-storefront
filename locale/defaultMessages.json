@@ -934,9 +934,6 @@
     "context": "ProductsFeatured collection section name",
     "string": "You might like"
   },
-  "src_dot_views_dot_Home_dot_Page_dot_154249222": {
-    "string": "Contact us: 0778334977"
-  },
   "src_dot_views_dot_Home_dot_Page_dot_1618696306": {
     "context": "button discover home page collection",
     "string": "discover"
@@ -949,8 +946,8 @@
     "context": "title home page shop by collection",
     "string": "Shop by collection"
   },
-  "src_dot_views_dot_Home_dot_Page_dot_593347334": {
-    "string": "Shipping cost: 500DZD"
+  "src_dot_views_dot_Home_dot_Page_dot_3688945423": {
+    "string": "Contact us: 0778334917"
   },
   "src_dot_views_dot_Product_dot_Other_dot_3212906417": {
     "string": "Other products in this category"
