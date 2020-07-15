@@ -49,9 +49,9 @@ export class SaleorState extends NamedObservable<StateItems>
     ) => any,
     forceReload?: boolean
   ) => {
-    if (this.isCheckoutCreatedOnline() && !forceReload) {
-      return;
-    }
+    // if (this.isCheckoutCreatedOnline() && !forceReload) {
+    //   return;
+    // }
 
     if (navigator.onLine) {
       await this.provideCheckoutOnline(onError);
@@ -122,7 +122,19 @@ export class SaleorState extends NamedObservable<StateItems>
         return;
       } else {
         if (this.isCheckoutCreatedOnline()) this.checkout!.id = undefined;
-        this.repository.setCheckout(null);
+        if (this.checkout) {
+          this.checkout.id = undefined;
+          this.checkout.token = null;
+          this.checkout.selectedBillingAddressId = undefined;
+          this.checkout.selectedShippingAddressId = undefined;
+        }
+        this.repository.setCheckout({
+          ...this.repository.getCheckout(),
+          token: null,
+          id: undefined,
+          selectedBillingAddressId: undefined,
+          selectedShippingAddressId: undefined,
+        });
 
         return;
       }
