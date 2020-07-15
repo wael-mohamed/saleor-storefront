@@ -115,28 +115,34 @@ export class SaleorState extends NamedObservable<StateItems>
       if (error) {
         onError(error, DataErrorCheckoutTypes.GET_CHECKOUT);
         this.repository.setCheckout(null);
-        if (this.isCheckoutCreatedOnline()) this.checkout!.id = undefined;
-      } else if (data) {
-        this.repository.setCheckout(data);
-        // this.updateCheckout(data);
-        return;
-      } else {
-        if (this.isCheckoutCreatedOnline()) this.checkout!.id = undefined;
-        if (this.checkout) {
-          this.checkout.id = undefined;
-          this.checkout.token = null;
-          this.checkout.selectedBillingAddressId = undefined;
-          this.checkout.selectedShippingAddressId = undefined;
+        if (this.isCheckoutCreatedOnline()) {
+          this.checkout!.id = undefined;
         }
-        this.repository.setCheckout({
-          ...this.repository.getCheckout(),
-          token: null,
-          id: undefined,
-          selectedBillingAddressId: undefined,
-          selectedShippingAddressId: undefined,
-        });
+      } else {
+        if (data) {
+          this.repository.setCheckout(data);
+          // this.updateCheckout(data);
+          return;
+        } else {
+          if (this.isCheckoutCreatedOnline()) {
+            this.checkout!.id = undefined;
+          }
+          if (this.checkout) {
+            this.checkout.id = undefined;
+            this.checkout.token = null;
+            this.checkout.selectedBillingAddressId = undefined;
+            this.checkout.selectedShippingAddressId = undefined;
+          }
+          this.repository.setCheckout({
+            ...this.repository.getCheckout(),
+            id: undefined,
+            selectedBillingAddressId: undefined,
+            selectedShippingAddressId: undefined,
+            token: null,
+          });
 
-        return;
+          return;
+        }
       }
     }
 
