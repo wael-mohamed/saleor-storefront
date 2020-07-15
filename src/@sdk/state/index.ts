@@ -112,12 +112,18 @@ export class SaleorState extends NamedObservable<StateItems>
       const { data, error } = await this.networkManager.getCheckout(
         checkout?.token
       );
-
       if (error) {
         onError(error, DataErrorCheckoutTypes.GET_CHECKOUT);
+        this.repository.setCheckout(null);
+        if (this.isCheckoutCreatedOnline()) this.checkout!.id = undefined;
       } else if (data) {
         this.repository.setCheckout(data);
         // this.updateCheckout(data);
+        return;
+      } else {
+        if (this.isCheckoutCreatedOnline()) this.checkout!.id = undefined;
+        this.repository.setCheckout(null);
+
         return;
       }
     }
