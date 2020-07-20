@@ -102,7 +102,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             {...basicInputProps()}
           />
         </S.RowWithOneCell>
-        <S.RowWithOneCell>
+        {/* <S.RowWithOneCell>
           <TextField
             data-cy="addressFormStreetAddress2"
             name="streetAddress2"
@@ -115,7 +115,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             errors={fieldErrors!.streetAddress2}
             {...basicInputProps()}
           />
-        </S.RowWithOneCell>
+        </S.RowWithOneCell> */}
         <S.RowWithTwoCells>
           <InputSelect
             inputProps={{
