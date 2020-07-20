@@ -48,12 +48,11 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
     net: discount,
   };
 
-  const numberOfItems = () =>{
-    return items?.reduce(
-      (prevVal, currVal) => prevVal + currVal.quantity,
-      0
-    ) || 0
-  }
+  const numberOfItems = () => {
+    return (
+      items?.reduce((prevVal, currVal) => prevVal + currVal.quantity, 0) || 0
+    );
+  };
   return (
     <Overlay context={overlay}>
       <Online>
@@ -61,14 +60,9 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
           <div className="overlay__header">
             <ReactSVG path={cartImg} className="overlay__header__cart-icon" />
             <div className="overlay__header-text">
-              <FormattedMessage
-                defaultMessage={"My bag, "}
-              />{" "}
+              <FormattedMessage defaultMessage={"My bag, "} />{" "}
               <span className="overlay__header-text-items">
-                { numberOfItems() }{" "}
-                <FormattedMessage
-                  defaultMessage={" items"}
-                />
+                {numberOfItems()} <FormattedMessage defaultMessage={" items"} />
               </span>
             </div>
             <ReactSVG
@@ -77,16 +71,13 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
               className="overlay__header__close-icon"
             />
           </div>
-          {
-          items?.length ? (
+          {items?.length ? (
             <>
               <ProductList lines={items} remove={removeItem} />
               <div className="cart__footer">
                 <div className="cart__footer__price">
                   <span>
-                    <FormattedMessage
-                      defaultMessage={"Subtotal"}
-                    />
+                    <FormattedMessage defaultMessage={"Subtotal"} />
                   </span>
                   <span>
                     <TaxedMoney
@@ -99,9 +90,7 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
                 {shippingTaxedPrice && shippingTaxedPrice.gross.amount !== 0 && (
                   <div className="cart__footer__price">
                     <span>
-                    <FormattedMessage
-                      defaultMessage={"Shipping"}
-                    />
+                      <FormattedMessage defaultMessage={"Shipping"} />
                     </span>
                     <span>
                       <TaxedMoney
@@ -115,9 +104,7 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
                 {promoTaxedPrice && promoTaxedPrice.gross.amount !== 0 && (
                   <div className="cart__footer__price">
                     <span>
-                      <FormattedMessage
-                        defaultMessage={"Promo code"}
-                      />
+                      <FormattedMessage defaultMessage={"Promo code"} />
                     </span>
                     <span>
                       <TaxedMoney
@@ -130,9 +117,7 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
 
                 <div className="cart__footer__price">
                   <span>
-                    <FormattedMessage
-                      defaultMessage={"Total"}
-                    />
+                    <FormattedMessage defaultMessage={"Total"} />
                   </span>
                   <span>
                     <TaxedMoney
@@ -149,18 +134,21 @@ const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
                     })}
                   >
                     <Button secondary>
-                    <FormattedMessage
-                        defaultMessage={"Go to my bag"}
-                      />
+                      <FormattedMessage defaultMessage={"Go to my bag"} />
                     </Button>
                   </Link>
                 </div>
                 <div className="cart__footer__button">
-                  <Link to={user ? checkoutUrl : checkoutLoginUrl}>
+                  {/* <Link to={user ? checkoutUrl : checkoutLoginUrl}>
                     <Button>
                       <FormattedMessage
                         defaultMessage={"Checkout"}
                       />
+                    </Button>
+                  </Link> */}
+                  <Link to={checkoutUrl}>
+                    <Button>
+                      <FormattedMessage defaultMessage={"Checkout"} />
                     </Button>
                   </Link>
                 </div>
