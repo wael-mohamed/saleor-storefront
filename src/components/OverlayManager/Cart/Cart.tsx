@@ -15,7 +15,7 @@ import {
   Overlay,
   OverlayContextInterface,
 } from "../..";
-import { cartUrl, checkoutLoginUrl, checkoutUrl } from "../../../app/routes";
+import { cartUrl, checkoutUrl } from "../../../app/routes";
 import Empty from "./Empty";
 import ProductList from "./ProductList";
 
@@ -25,7 +25,7 @@ import closeImg from "../../../images/x.svg";
 import { FormattedMessage } from "react-intl";
 
 const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
-  const { data: user } = useUserDetails();
+  // const { data: user } = useUserDetails();
   const { checkout } = useCheckout();
   const {
     items,
