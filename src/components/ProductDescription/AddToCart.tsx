@@ -20,7 +20,9 @@ const AddToCart: React.FC<{
         onSubmit();
         alert.success(
           {
-            title: "Item added to cart!",
+            title: intl.formatMessage({
+              defaultMessage: "Item added to cart!",
+            }),
           },
           {
             timeout: 5000,

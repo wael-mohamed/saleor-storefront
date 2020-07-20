@@ -207,10 +207,6 @@
     "context": "ZIP/Postal Code label",
     "string": "ZIP/Postal Code"
   },
-  "src_dot_@next_dot_components_dot_organisms_dot_AddressForm_dot_AddressFormContent_dot_3121963259": {
-    "context": "Address line 2 label",
-    "string": "Address line 2"
-  },
   "src_dot_@next_dot_components_dot_organisms_dot_AddressForm_dot_AddressFormContent_dot_404705399": {
     "context": "State/province label",
     "string": "State/province"
@@ -583,6 +579,9 @@
   "src_dot_components_dot_PasswordResetForm_dot_index_dot_805890313": {
     "context": "password p",
     "string": "Please provide us your email address so we can share you a link to reset your password"
+  },
+  "src_dot_components_dot_ProductDescription_dot_AddToCart_dot_2113813599": {
+    "string": "Item added to cart!"
   },
   "src_dot_components_dot_ProductDescription_dot_AddToCart_dot_81047562": {
     "string": "Add to basket"
