@@ -5,7 +5,7 @@ import { generatePath, Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import { TaxedMoney } from "@components/containers";
-import { useCart, useCheckout, useUserDetails } from "@sdk/react";
+import { useCart, useCheckout } from "@sdk/react";
 
 import {
   Button,
