@@ -30,14 +30,14 @@ const shippingMethods = [
 ];
 const zone01: ICity[] = [
   {
-    label: "ORAN",
-    value: 31,
+    label: "MOSTAGANEM",
+    value: 27,
   },
 ];
 const zone02: ICity[] = [
   {
-    label: "MOSTAGANEM",
-    value: 27,
+    label: "ORAN",
+    value: 31,
   },
   {
     label: "TISSEMSILT",
