@@ -27,6 +27,10 @@ const shippingMethods = [
     id: "U2hpcHBpbmdNZXRob2Q6NDU=",
     zone: 6,
   },
+  {
+    id: "U2hpcHBpbmdNZXRob2Q6NDY=",
+    zone: 7,
+  },
 ];
 const zone01: ICity[] = [
   {
@@ -216,16 +220,18 @@ const zone05: ICity[] = [
 ];
 const zone06: ICity[] = [
   {
+    label: "EL BAYADH",
+    value: 32,
+  },
+];
+const zone07: ICity[] = [
+  {
     label: "TAMANRASSET",
     value: 11,
   },
   {
     label: "ILLIZI",
     value: 33,
-  },
-  {
-    label: "EL BAYADH",
-    value: 32,
   },
   {
     label: "TINDOUF",
@@ -238,7 +244,8 @@ export const getCities = () => {
     .concat(zone03)
     .concat(zone04)
     .concat(zone05)
-    .concat(zone06);
+    .concat(zone06)
+    .concat(zone07);
 };
 const getZoneByCityName = (cityName: string) => {
   if (hasCityName(zone01, cityName)) {
@@ -259,14 +266,14 @@ const getZoneByCityName = (cityName: string) => {
   if (hasCityName(zone06, cityName)) {
     return 6;
   }
-  return 1;
+  return 7;
 };
 
 export const getShippingMethod = (cityName?: string) => {
   return cityName
-    ? shippingMethods.find(sm => sm.zone === getZoneByCityName(cityName))?.id
+    ? shippingMethods.find((sm) => sm.zone === getZoneByCityName(cityName))?.id
     : null;
 };
 const hasCityName = (zone: ICity[], cityName: string) => {
-  return zone.find(city => city.label === cityName);
+  return zone.find((city) => city.label === cityName);
 };
