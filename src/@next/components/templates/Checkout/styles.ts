@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
 
   grid-template-columns: 8fr 4fr;
   grid-template-rows: 85px auto auto;
+  align-content: start;
   grid-column-gap: 30px;
   grid-template-areas:
     "navigation cartSummary"
@@ -41,6 +42,7 @@ export const Navigation = styled.div`
 export const Checkout = styled.div`
   grid-area: checkout;
   padding: 3rem 0;
+  height: auto;
 `;
 export const CartSummary = styled.div`
   grid-area: cartSummary;

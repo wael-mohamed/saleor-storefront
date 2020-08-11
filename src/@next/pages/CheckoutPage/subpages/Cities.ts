@@ -44,10 +44,6 @@ const zone02: ICity[] = [
     value: 31,
   },
   {
-    label: "TISSEMSILT",
-    value: 38,
-  },
-  {
     label: "CHLEF",
     value: 2,
   },
@@ -83,8 +79,10 @@ const zone02: ICity[] = [
     label: "TLEMCEN",
     value: 13,
   },
-];
-const zone03: ICity[] = [
+  {
+    label: "TISSEMSILT",
+    value: 38,
+  },
   {
     label: "BLIDA",
     value: 9,
@@ -102,10 +100,6 @@ const zone03: ICity[] = [
     value: 26,
   },
   {
-    label: "BOUIRA",
-    value: 10,
-  },
-  {
     label: "TIZI OUZOU",
     value: 15,
   },
@@ -113,39 +107,23 @@ const zone03: ICity[] = [
     label: "ALGER",
     value: 16,
   },
+  {
+    label: "BEJAIA",
+    value: 6,
+  },
 ];
-const zone04: ICity[] = [
+const zone03: ICity[] = [
   {
     label: "M'SILA",
     value: 28,
   },
   {
-    label: "TEBESSA",
-    value: 12,
-  },
-  {
-    label: "GUELMA",
-    value: 24,
-  },
-  {
-    label: "EL TAREF",
-    value: 36,
-  },
-  {
-    label: "SOUK AHRAS",
-    value: 41,
-  },
-  {
-    label: "KHENCHELA",
-    value: 40,
+    label: "BOUIRA",
+    value: 10,
   },
   {
     label: "BATNA",
     value: 5,
-  },
-  {
-    label: "BEJAIA",
-    value: 6,
   },
   {
     label: "JIJEL",
@@ -158,10 +136,6 @@ const zone04: ICity[] = [
   {
     label: "CONSTANTINE",
     value: 25,
-  },
-  {
-    label: "MILA",
-    value: 43,
   },
   {
     label: "OUM EL BOUAGHI",
@@ -180,7 +154,31 @@ const zone04: ICity[] = [
     value: 34,
   },
 ];
-const zone05: ICity[] = [
+const zone04: ICity[] = [
+  {
+    label: "TEBESSA",
+    value: 12,
+  },
+  {
+    label: "MILA",
+    value: 43,
+  },
+  {
+    label: "KHENCHELA",
+    value: 40,
+  },
+  {
+    label: "SOUK AHRAS",
+    value: 41,
+  },
+  {
+    label: "EL TAREF",
+    value: 36,
+  },
+  {
+    label: "GUELMA",
+    value: 24,
+  },
   {
     label: "LAGHOUAT",
     value: 3,
@@ -201,30 +199,30 @@ const zone05: ICity[] = [
     label: "GHARDAIA",
     value: 47,
   },
+];
+const zone05: ICity[] = [
   {
-    label: "ADRAR",
-    value: 1,
+    label: "EL OUED",
+    value: 39,
   },
   {
     label: "BECHAR",
     value: 8,
   },
   {
+    label: "EL BAYADH",
+    value: 32,
+  },
+  {
     label: "NAAMA",
     value: 45,
   },
   {
-    label: "EL OUED",
-    value: 39,
+    label: "ADRAR",
+    value: 1,
   },
 ];
 const zone06: ICity[] = [
-  {
-    label: "EL BAYADH",
-    value: 32,
-  },
-];
-const zone07: ICity[] = [
   {
     label: "TAMANRASSET",
     value: 11,
@@ -238,14 +236,15 @@ const zone07: ICity[] = [
     value: 37,
   },
 ];
+
 export const getCities = () => {
   return zone01
     .concat(zone02)
     .concat(zone03)
     .concat(zone04)
     .concat(zone05)
-    .concat(zone06)
-    .concat(zone07);
+    .concat(zone06);
+  // .concat(zone07);
 };
 const getZoneByCityName = (cityName: string) => {
   if (hasCityName(zone01, cityName)) {
@@ -271,9 +270,9 @@ const getZoneByCityName = (cityName: string) => {
 
 export const getShippingMethod = (cityName?: string) => {
   return cityName
-    ? shippingMethods.find((sm) => sm.zone === getZoneByCityName(cityName))?.id
+    ? shippingMethods.find(sm => sm.zone === getZoneByCityName(cityName))?.id
     : null;
 };
 const hasCityName = (zone: ICity[], cityName: string) => {
-  return zone.find((city) => city.label === cityName);
+  return zone.find(city => city.label === cityName);
 };
