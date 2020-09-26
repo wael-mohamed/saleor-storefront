@@ -156,6 +156,10 @@ const zone03: ICity[] = [
 ];
 const zone04: ICity[] = [
   {
+    label: "EL OUED",
+    value: 39,
+  },
+  {
     label: "TEBESSA",
     value: 12,
   },
@@ -201,10 +205,6 @@ const zone04: ICity[] = [
   },
 ];
 const zone05: ICity[] = [
-  {
-    label: "EL OUED",
-    value: 39,
-  },
   {
     label: "BECHAR",
     value: 8,
